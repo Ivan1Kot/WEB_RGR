@@ -50,6 +50,7 @@
                                 <option value="3">Не Симферополь и не ЮБК</option>
                             </select>
 
+                            
                             <button type="submit" href="/main" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
                         </div>
                     </div>
