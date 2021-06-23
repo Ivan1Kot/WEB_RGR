@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class MainController extends Controller
+class DBController extends Controller
 {
-    public function Main()
-    {
-        return view('main');
-    }
+
 }

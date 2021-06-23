@@ -4,7 +4,8 @@
 
 @section("page-content")
     <h1>Заполни поля</h1>
-        <form name="pit-form">
+        <form name="pit-form"  method="post" action="/pit">
+            @csrf
             <div class="container">
                 <div class="card-deck mb-3 text-center">
                     <div class="card mb-4 box-shadow">
@@ -45,6 +46,7 @@
                         </div>
                     </div>
                 </div>
+
         </form>
         <footer class="pt-4 my-md-5 pt-md-5 border-top">
             <div class="row">
