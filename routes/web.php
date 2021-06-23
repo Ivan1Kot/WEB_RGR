@@ -36,3 +36,27 @@ Route::get('/trench', function () {
 Route::get('/pit', function () {
     return view('pit');
 });
+
+Route::get('/planning', function () {
+    return view('planning');
+});
+
+Route::get('/terracing', function () {
+    return view('terracing');
+});
+
+Route::get('/hydrohammer', function () {
+    return view('hydrohammer');
+});
+
+Route::get('/hydrodrill', function () {
+    return view('hydrodrill');
+});
+
+Route::get('/foundation_pit', function () {
+    return view('foundation_pit');
+});
+
+Route::get('/price', function () {
+    return view('price');
+});

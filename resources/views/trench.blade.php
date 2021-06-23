@@ -4,6 +4,9 @@
 
 @section("page-content")
     <h1>Заполни поля</h1>
+    @if($errors->any())
+
+    @endif
         <form name="trench-form">
             <div class="container">
                 <div class="card-deck mb-3 text-center">
@@ -21,10 +24,10 @@
                                     <option value="4">Строительный мусор</option>
                                 </select>
                             <p class="text-dark">Ширина проезда</p>
-                            <input type="text" name="pass-width" class="form-control" placeholder="Ширина (см)">
+                            <input type="number" name="pass-width" class="form-control" placeholder="Ширина (см)">
 
                             <p class="text-dark">Высота проезда</p>
-                            <input type="text" name="pass-height" class="form-control" placeholder="Высота (см)">
+                            <input type="number" name="pass-height" class="form-control" placeholder="Высота (см)">
 
                             <p class="text-dark">Нужен поиск коммуникаций?</p>
                             <select class="form-select" name="communications-search" aria-label="Default select example">
@@ -33,13 +36,21 @@
                             </select>
 
                             <p class="text-dark">Длина траншеи</p>
-                            <input type="text" name="trench-lenght" class="form-control" placeholder="Длина (см)">
+                            <input type="number" name="trench-lenght" class="form-control" placeholder="Длина (см)">
 
                             <p class="text-dark">Глубина траншеи</p>
-                            <input type="text" name="trench-depth" class="form-control" placeholder="Глубина (см)">
+                            <input type="number" name="trench-depth" class="form-control" placeholder="Глубина (см)">
 
                             <p class="text-dark">Ширина траншеи</p>
-                            <input type="text" name="trench-width" class="form-control" placeholder="Ширина (см)">
+                            <input type="number" name="trench-width" class="form-control" placeholder="Ширина (см)">
+
+                            <p class="text-dark">Местоположение</p>
+                            <select class="form-select" name="communications-search" aria-label="Default select example">
+                                <option selected>Выберите ваше местоположение</option>
+                                <option value="1">Симферополь</option>
+                                <option value="2">ЮБК</option>
+                                <option value="3">Не Симферополь и не ЮБК</option>
+                            </select>
 
                             <button type="submit" href="/main" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
                         </div>

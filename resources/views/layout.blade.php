@@ -13,7 +13,7 @@
 </head>
 <body class="text-center">
     <div class="container-fluid d-flex h-100 p-3 mx-auto flex-column">
-        <header class="masthead mb-auto">
+        <header class="masthead">
             <div class="inner">
                 <h3 class="masthead-brand">Crimean Ground Works</h3>
                 <nav class="nav nav-masthead justify-content-center">
@@ -30,12 +30,6 @@
         <main role="main" class="inner cover">
             @yield("page-content")
         </main>
-
-        <footer class="mastfoot mt-auto">
-            <div class="inner">
-                <p>Не твое собачье дело, 2021©.</p>
-            </div>
-        </footer>
     </div>
 </body>
 </html>

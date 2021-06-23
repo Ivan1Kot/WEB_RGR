@@ -4,22 +4,14 @@
 
 @section("page-content")
     <h1>Заполни поля</h1>
-        <form name="pit-form">
+        <form name="foundation_pit-form">
             <div class="container">
                 <div class="card-deck mb-3 text-center">
                     <div class="card mb-4 box-shadow">
                         <div class="card-header">
-                            <h4 class="my-0 font-weight-normal text-dark">Яма</h4>
+                            <h4 class="my-0 font-weight-normal text-dark">Котлован</h4>
                         </div>
                         <div class="card-body">
-                            <p class="text-dark">Тип грунта</p>
-                                <select class="form-select" name="ground-type" aria-label="Default select example">
-                                    <option selected>Выбери тип грунта</option>
-                                    <option value="1">Копаемый</option>
-                                    <option value="2">Скальный</option>
-                                    <option value="3">Полускальный</option>
-                                    <option value="4">Строительный мусор</option>
-                                </select>
                             <p class="text-dark">Ширина проезда</p>
                             <input type="number" name="pass-width" class="form-control" placeholder="Ширина (см)">
 
@@ -32,14 +24,14 @@
                                 <option value="2">Да</option>
                             </select>
 
-                            <p class="text-dark">Длина ямы</p>
-                            <input type="number" name="pit-lenght" class="form-control" placeholder="Длина (см)">
+                            <p class="text-dark">Длина участка</p>
+                            <input type="number" name="area-lenght" class="form-control" placeholder="Длина (см)">
 
-                            <p class="text-dark">Глубина ямы</p>
-                            <input type="number" name="pit-depth" class="form-control" placeholder="Глубина (см)">
+                            <p class="text-dark">Ширина участка</p>
+                            <input type="number" name="area-width" class="form-control" placeholder="Ширина (см)">
 
-                            <p class="text-dark">Ширина ямы</p>
-                            <input type="number" name="pit-width" class="form-control" placeholder="Ширина (см)">
+                            <p class="text-dark">Глубина котлована</p>
+                            <input type="number" name="foundation-depth" class="form-control" placeholder="Глубина (см)">
 
                             <button type="submit" href="/main" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
                         </div>
