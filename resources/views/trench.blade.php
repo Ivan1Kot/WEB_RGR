@@ -54,6 +54,7 @@
                                 <input type="number" name="distance" class="form-control" placeholder="Введите расстояние (Если вы не в Симферополе и не в ЮБК) (км)">
                             </div>
 
+                            
                             <button type="submit" href="/main" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
                         </div>
                     </div>
