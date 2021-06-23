@@ -120,4 +120,16 @@ class CalcController extends Controller
     {
 
     }
+
+    function GetPriceLocation($location, $distance)
+    {
+        switch ($location){
+            case 1:
+                return 2000;
+            case 2:
+                return $distance * 40 * 2;
+            case 3:
+                return $distance * 40 * 2 + 3000;
+        }
+    }
 }
