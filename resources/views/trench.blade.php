@@ -43,7 +43,7 @@
                             <input type="number" name="trench-width" class="form-control" placeholder="Ширина (см)">
 
                             <p class="text-dark">Местоположение</p>
-                            <select class="form-select" name="communications-search" aria-label="Default select example">
+                            <select class="form-select" name="delivery" aria-label="Default select example">
                                 <option selected>Выберите ваше местоположение</option>
                                 <option value="1">Симферополь</option>
                                 <option value="2">ЮБК</option>
