@@ -12,7 +12,7 @@
                     <h4 class="my-0 font-weight-normal text-dark">Траншея</h4>
                 </div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Добавить</button>
+                    <a type="button" href="/trench" class="btn btn-lg btn-block btn-primary">Добавить</a>
                 </div>
             </div>
             <div class="card mb-4 box-shadow">
@@ -20,7 +20,7 @@
                     <h4 class="my-0 font-weight-normal text-dark">Яма</h4>
                 </div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Добавить</button>
+                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Добавить</a>
                 </div>
             </div>
             <div class="card mb-4 box-shadow">
@@ -28,7 +28,7 @@
                     <h4 class="my-0 font-weight-normal text-dark">Планировка</h4>
                 </div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Добавить</button>
+                    <a type="button" class="btn btn-lg btn-block btn-primary">Добавить</a>
                 </div>
             </div>
         </div>

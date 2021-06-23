@@ -28,3 +28,11 @@ Route::get('/payment', function () {
 Route::get('/reviews', function () {
     return view('reviews');
 });
+
+Route::get('/trench', function () {
+    return view('trench');
+});
+
+Route::get('/pit', function () {
+    return view('pit');
+});
