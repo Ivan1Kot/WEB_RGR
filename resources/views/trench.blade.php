@@ -34,7 +34,7 @@
                             </select>
 
                             <p class="text-dark">Длина траншеи</p>
-                            <input type="number" name="trench-lenght" class="form-control" placeholder="Длина (см)">
+                            <input type="number" name="trench-lenght" class="form-control" placeholder="Длина (м)">
 
                             <p class="text-dark">Глубина траншеи</p>
                             <input type="number" name="trench-depth" class="form-control" placeholder="Глубина (см)">
@@ -50,15 +50,15 @@
                                 <option value="3">Не Симферополь и не ЮБК</option>
                             </select>
 
-                            
+                            <div>
+                                <p class="text-dark">Расстояние от симферополя до вашего местоположения</p>
+                                <input type="number" name="distance" class="form-control" placeholder="Введите расстояние (Если вы не в Симферополе и не в ЮБК) (км)">
+                            </div>
+
                             <button type="submit" href="/main" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
                         </div>
                     </div>
                 </div>
         </form>
-        <footer class="pt-4 my-md-5 pt-md-5 border-top">
-            <div class="row">
-            </div>
-        </footer>
     </div>
 @endsection
