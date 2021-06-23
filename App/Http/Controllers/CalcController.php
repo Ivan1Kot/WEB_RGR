@@ -76,6 +76,7 @@ class CalcController extends Controller
                 }
             }
         }
+        $price + $this->GetPriceLocation($request['delivery'], 50);
         if($request['ground-type']>1)
         {
             $price = $price."₽ + 2500₽/час";
