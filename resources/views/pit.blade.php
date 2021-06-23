@@ -34,13 +34,25 @@
                             </select>
 
                             <p class="text-dark">Длина ямы</p>
-                            <input type="number" name="pit-lenght" class="form-control" placeholder="Длина (см)">
+                            <input type="number" name="pit-lenght" class="form-control" placeholder="Длина (м)">
 
                             <p class="text-dark">Глубина ямы</p>
                             <input type="number" name="pit-depth" class="form-control" placeholder="Глубина (см)">
 
                             <p class="text-dark">Ширина ямы</p>
                             <input type="number" name="pit-width" class="form-control" placeholder="Ширина (см)">
+                            <p class="text-dark">Местоположение</p>
+                            <select class="form-select" name="delivery" aria-label="Default select example">
+                                <option selected>Выберите ваше местоположение</option>
+                                <option value="1">Симферополь</option>
+                                <option value="2">ЮБК</option>
+                                <option value="3">Не Симферополь и не ЮБК</option>
+                            </select>
+
+                            <div>
+                                <p class="text-dark">Расстояние от симферополя до вашего местоположения</p>
+                                <input type="number" name="distance" class="form-control" placeholder="Введите расстояние (Если вы не в Симферополе и не в ЮБК) (км)">
+                            </div>
 
                             <button type="submit" href="/main" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
                         </div>
@@ -48,9 +60,5 @@
                 </div>
 
         </form>
-        <footer class="pt-4 my-md-5 pt-md-5 border-top">
-            <div class="row">
-            </div>
-        </footer>
     </div>
 @endsection
