@@ -65,18 +65,14 @@ Route::get('/price', function () {
     return view('price');
 });
 
-Route::get('/Logout',[DBController::class,'Logout']);
+Route::get('/logout',[DBController::class,'Logout']);
 
 Route::post('/login', [DBController::class,'CreateUser']);
 Route::get('/login', function () {
-    return view('login');
+    return view('login', ['login' => 0]);
 });
 
+Route::post('/signin', [DBController::class,'Signin']);
 Route::get('/signin', function () {
     return view('signin');
-});
-
-Route::post('/login', [DBController::class,'CreateUser']);
-Route::get('/login', function () {
-    return view('login');
 });

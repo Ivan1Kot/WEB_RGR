@@ -4,7 +4,7 @@
 
 @section("page-content")
     <h1>Авторизиция</h1>
-        <form name="signin-form"  method="post" action="/pit">
+        <form name="signin-form"  method="post" action="/signin">
             @csrf
             <div class="container">
                 <div class="card-deck mb-3 text-center">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                @if($errors)
+                @if(session('isUser') == 1)
                     <div class="alert alert-success">
                         Вы вошли в систему
                     </div>

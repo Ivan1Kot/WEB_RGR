@@ -29,19 +29,30 @@ class DBController extends Controller
         session(['isUser' => 1]);
         session(['username' => $request->input('user-name')]);
 
-        redirect('/');
+        session(['isUser' => 1]);
+        return view('login');
     }
 
     public function Logout()
     {
         session(['isUser' => 0]);
-        redirect('/');
+        return view('main');
     }
 
     public function Signin(Request $request)
     {
-        session(['isUser' => 0]);
-        redirect('/');
+        $valid = $request->validate([
+            'user-email' => 'required',
+            'user-password' => 'required|min:4',
+        ]);
+        $useremail = UserModel::select("*")->where("email", $request->input('user-email'));
+
+        if($useremail->exists() && UserModel::select("*")->where("password", $request->input('user-password'))->exists()){
+            session(['isUser' => 1]);
+            session(['username' => UserModel::find($request->input('user-email'))->FIO]);
+        }
+        session(['isUser' => 1]);
+        return view('signin');
     }
 
     public function CreateModerator(Request $request)

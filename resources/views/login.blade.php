@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                @if($errors)
+                @if(session('isUser') == 1)
                     <div class="alert alert-success">
                         Вы успешно зарегестрированы!
                     </div>

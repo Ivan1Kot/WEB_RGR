@@ -1,6 +1,6 @@
 @extends("layout")
 
-@section("page-title")Главная@endsection
+@section("page-title") Главная @endsection
 
 @section("page-content")
     <h2 class="cover-heading" style="margin-top: 15vw">Узнай сколько будут стоить <b>земельные работы</b> на твоём участке!</h2>
