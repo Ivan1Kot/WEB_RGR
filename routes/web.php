@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\CalcController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\DBController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,7 @@ Route::get('/price', function () {
     return view('price');
 });
 
+Route::post('/login', [DBController::class,'CreateUser']);
 Route::get('/login', function () {
     return view('login');
 });

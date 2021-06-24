@@ -12,16 +12,24 @@ class DBController extends Controller
     public function CreateUser(Request $request)
     {
         $valid = $request->validate([
-            'email' => 'required|email|unique',
-            'password' => 'required|min:4|confirmed',
+            'user-name' => 'required',
+            'user-email' => 'required',
+            'user-password' => 'required|min:4',
+            'password-confirmation' => 'required|min:4',
         ]);
 
         $user = new UserModel();
 
-        $user->email = $request->input('email');
-        $user->password = $request->input('password');
+        $user->email = $request->input('user-email');
+        $user->FIO = $request->input('user-name');
+        $user->password = $request->input('user-password');
 
         $user->save();
+
+        session(['isUser' => 1]);
+        session(['username' => $request->input('user-name')]);
+
+        redirect('/main');
     }
 
     public function CreateModerator(Request $request)

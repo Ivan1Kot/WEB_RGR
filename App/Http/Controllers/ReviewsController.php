@@ -21,6 +21,6 @@ class ReviewsController extends Controller
                 'text' => $d['review_text'],
             ];
         }
-        return view('reviews', $data);
+        return view('reviews', ["data" => $data]);
     }
 }

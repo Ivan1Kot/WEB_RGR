@@ -23,8 +23,13 @@
                     <a class="nav-link" href="/payment">Расчет</a>
                     <a class="nav-link" href="/reviews">Отзывы</a>
                     <a class="nav-link ms-5" href="/reviews"></a>
-                    <a class="btn btn-light ms-2" href="signin">Войти</a>
-                    <a class="btn btn-light ms-2" href="login">Регистрация</a>
+                    @if(session('isUser') != 1)
+                        <a class="btn btn-light ms-2" href="signin">Войти</a>
+                        <a class="btn btn-light ms-2" href="login">Регистрация</a>
+                    @endif
+                    @if(session('isUser') == 1)
+                        <a class="btn btn-light ms-2">Доброе утро, {{session('username')}}</a>
+                    @endif
                 </nav>
             </div>
         </header>

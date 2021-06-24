@@ -11,9 +11,4 @@ class MainController extends Controller
     {
         return view('main');
     }
-
-    public function Auth()
-    {
-        session(['isAdmin' => 1]);
-    }
 }

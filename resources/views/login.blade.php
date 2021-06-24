@@ -4,7 +4,7 @@
 
 @section("page-content")
     <h1>Регистрация</h1>
-        <form name="login-form"  method="post" action="/pit">
+        <form name="login-form"  method="post" action="/login">
             @csrf
             <div class="container">
                 <div class="card-deck mb-3 text-center">
