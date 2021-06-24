@@ -4,6 +4,15 @@
 
 @section("page-content")
     <h1>Заполни поля</h1>
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
         <form name="planning-form"  method="post" action="/planning">
             @csrf
             <div class="container">

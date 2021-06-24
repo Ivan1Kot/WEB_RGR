@@ -24,6 +24,11 @@
                         </div>
                     </div>
                 </div>
+                @if($errors)
+                    <div class="alert alert-success">
+                        Вы вошли в систему
+                    </div>
+                @endif
+            </div>
         </form>
-    </div>
 @endsection

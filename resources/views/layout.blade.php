@@ -13,6 +13,7 @@
     <link href="WEB_RGR/public/summernote.css" rel="stylesheet"/>
 
 </head>
+
 <body class="text-center">
     <div class="container-fluid d-flex h-100 p-3 mx-auto flex-column">
         <header class="masthead">
@@ -35,6 +36,7 @@
         </header>
 
         <main role="main" class="inner cover">
+
             @yield("page-content")
         </main>
     </div>
