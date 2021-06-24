@@ -15,9 +15,8 @@
                 </div>
             </div>
         </div>
+        <textarea id="reviewtext" name="reviewtext"></textarea>
     </div>
-
-    <textarea class="m-5" id="reviewtext" name="reviewtext"></textarea>
     <button type="submit" href="/main" class="btn btn-lg btn-block btn-dark m-3">Оставить отзыв</button>
     <p class="lead">Чтобы оставить отзыв о сайте или о проделанной работе необходимо <a href="signin">авторизироваться</a></p>
 @endsection
