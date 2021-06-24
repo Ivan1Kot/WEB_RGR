@@ -64,3 +64,12 @@ Route::get('/hydrohammer', function () {
 Route::get('/price', function () {
     return view('price');
 });
+
+Route::post('/login', [LoginController::class,'FoundationPit']);
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/signin', function () {
+    return view('signin');
+});
