@@ -3,16 +3,6 @@
 @section("page-title")Отзывы@endsection
 
 @section("page-content")
-    <script src="summernote.js"></script>
-    <script src="texteditor.js"></script>
-    <script  type="text/javascript" >
-        jQuery(function ($) {
-
-            $("#reviewtext").summernote();
-
-        })
-
-    </script>
     <h1 class="m-5">Отзывы</h1>
     <div class="container">
         <div class="card-deck mb-3">
@@ -27,6 +17,7 @@
         </div>
     </div>
 
-    <textarea id="reviewtext"></textarea>
+    <textarea class="m-5" id="reviewtext" name="reviewtext"></textarea>
+    <button type="submit" href="/main" class="btn btn-lg btn-block btn-dark m-3">Оставить отзыв</button>
     <p class="lead">Чтобы оставить отзыв о сайте или о проделанной работе необходимо <a href="signin">авторизироваться</a></p>
 @endsection
