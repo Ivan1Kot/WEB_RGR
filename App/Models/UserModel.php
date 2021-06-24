@@ -8,5 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class UserModel extends Model
 {
     use HasFactory;
-    public $primary = 'email';
 }
