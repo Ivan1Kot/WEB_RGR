@@ -52,4 +52,7 @@ $response = tap($kernel->handle(
     $request = Request::capture()
 ))->send();
 
+session(['isAdmin' => 0]);
+session('isAdmin', 0);
+
 $kernel->terminate($request, $response);
