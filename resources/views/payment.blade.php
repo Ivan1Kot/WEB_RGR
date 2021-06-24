@@ -3,7 +3,7 @@
 @section("page-title")Расчет@endsection
 
 @section("page-content")
-    <h1>Выбери земельную работу</h1>
+    <h1 class="m-5">Выбери земельную работу</h1>
 
     <div class="container">
         <div class="card-deck mb-3 text-center">
