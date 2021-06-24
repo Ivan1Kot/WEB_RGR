@@ -29,7 +29,19 @@ class DBController extends Controller
         session(['isUser' => 1]);
         session(['username' => $request->input('user-name')]);
 
-        redirect('/main');
+        redirect('/');
+    }
+
+    public function Logout()
+    {
+        session(['isUser' => 0]);
+        redirect('/');
+    }
+
+    public function Signin(Request $request)
+    {
+        session(['isUser' => 0]);
+        redirect('/');
     }
 
     public function CreateModerator(Request $request)
