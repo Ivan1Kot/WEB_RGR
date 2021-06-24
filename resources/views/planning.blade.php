@@ -4,7 +4,8 @@
 
 @section("page-content")
     <h1>Заполни поля</h1>
-        <form name="planning-form">
+        <form name="planning-form"  method="post" action="/planning">
+            @csrf
             <div class="container">
                 <div class="card-deck mb-3 text-center">
                     <div class="card mb-4 box-shadow">

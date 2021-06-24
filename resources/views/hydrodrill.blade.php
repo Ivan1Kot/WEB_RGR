@@ -4,7 +4,8 @@
 
 @section("page-content")
     <h1>Заполни поля</h1>
-    <form name="hydrodrill-form">
+    <form name="hydrodrill-form"  method="post" action="/hydrodrill">
+        @csrf
         <div class="container">
             <div class="card-deck mb-3 text-center">
                 <div class="card mb-4 box-shadow">
@@ -32,8 +33,8 @@
                         <input type="number" name="trench-width" class="form-control" placeholder="Введите количество отверстий">
 
                         <p class="text-dark">Диаметр отверстия</p>
-                        <select class="form-select" name="communications-search"  aria-label="Disabled select example" disabled>
-                            <option selected value="1">30</option>
+                        <select class="form-select" name="communications-search"  aria-label="Disabled select example">
+                            <option selected value="30">30</option>
                         </select>
 
                         <p class="text-dark">Местоположение</p>

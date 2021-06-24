@@ -4,7 +4,8 @@
 
 @section("page-content")
     <h1>Заполни поля</h1>
-        <form name="terracing-form">
+        <form name="terracing-form"  method="post" action="/terracing">
+            @csrf
             <div class="container">
                 <div class="card-deck mb-3 text-center">
                     <div class="card mb-4 box-shadow">

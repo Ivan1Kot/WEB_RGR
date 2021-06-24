@@ -37,24 +37,28 @@ Route::get('/pit', function () {
     return view('pit');
 });
 
+Route::post('/planning', [CalcController::class,'Planning']);
 Route::get('/planning', function () {
     return view('planning');
 });
 
+Route::post('/terracing', [CalcController::class,'Terracing']);
 Route::get('/terracing', function () {
     return view('terracing');
 });
 
-Route::get('/hydrohammer', function () {
-    return view('hydrohammer');
-});
-
+Route::post('/hydrodrill', [CalcController::class,'Hydrodrill']);
 Route::get('/hydrodrill', function () {
     return view('hydrodrill');
 });
 
+Route::post('/foundation_pit', [CalcController::class,'FoundationPit']);
 Route::get('/foundation_pit', function () {
     return view('foundation_pit');
+});
+
+Route::get('/hydrohammer', function () {
+    return view('hydrohammer');
 });
 
 Route::get('/price', function () {
