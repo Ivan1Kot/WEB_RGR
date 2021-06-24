@@ -65,7 +65,6 @@ Route::get('/price', function () {
     return view('price');
 });
 
-Route::post('/login', [LoginController::class,'FoundationPit']);
 Route::get('/login', function () {
     return view('login');
 });
