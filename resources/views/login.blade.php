@@ -30,6 +30,12 @@
                         </div>
                     </div>
                 </div>
+                @if($errors)
+                    <div class="alert alert-success">
+                        Вы успешно зарегестрированы!
+                    </div>
+                @endif
+            </div>
         </form>
-    </div>
+
 @endsection

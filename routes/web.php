@@ -71,3 +71,11 @@ Route::get('/login', function () {
 Route::get('/signin', function () {
     return view('signin');
 });
+
+Route::get('/adminpanel', function () {
+    return view('adminpanel');
+});
+
+Route::get('/moderpanel', function () {
+    return view('moderpanel');
+});
