@@ -21,7 +21,7 @@
                     <a class="nav-link" href="/payment">Расчет</a>
                     <a class="nav-link" href="/reviews">Отзывы</a>
                     <a class="nav-link ms-5" href="/reviews"></a>
-                    <a class="btn btn-light ms-2" href="">Войти</a>
+                    <a class="btn btn-light ms-2" href="signin">Войти</a>
                     <a class="btn btn-light ms-2" href="login">Регистрация</a>
                 </nav>
             </div>
