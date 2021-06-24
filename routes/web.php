@@ -24,9 +24,7 @@ Route::get('/payment', function () {
     return view('payment');
 });
 
-Route::get('/reviews', function () {
-    return view('reviews');
-});
+Route::get('/reviews', [ReviewsController::class, 'Reviews']);
 
 Route::post('/trench', [CalcController::class,'Trench']);
 Route::get('/trench', function () {

@@ -11,6 +11,6 @@ class ReviewModel extends Model
 
     public function user()
     {
-        return $this->hasOne(UserModel::class, 'email');
+        return $this->hasOne(UserModel::class, 'email', 'user-email');
     }
 }
