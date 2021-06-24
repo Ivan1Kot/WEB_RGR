@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>@yield("page-title")</title>
+    <script  type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/4.0/examples/pricing/pricing.css" rel="stylesheet">
+    <link href="WEB_RGR/public/summernote.css" rel="stylesheet"/>
 
 </head>
 <body class="text-center">
@@ -31,5 +33,6 @@
             @yield("page-content")
         </main>
     </div>
+    <script  type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
