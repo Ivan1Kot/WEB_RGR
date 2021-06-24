@@ -34,7 +34,7 @@
                             </select>
 
                             <p class="text-dark">Длина ямы</p>
-                            <input type="number" name="pit-lenght" class="form-control" placeholder="Длина (м)">
+                            <input type="number" name="pit-lenght" class="form-control" placeholder="Длина (см)">
 
                             <p class="text-dark">Глубина ямы</p>
                             <input type="number" name="pit-depth" class="form-control" placeholder="Глубина (см)">

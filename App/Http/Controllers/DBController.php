@@ -13,7 +13,7 @@ class DBController extends Controller
     {
         $valid = $request->validate([
             'email' => 'required|email|unique',
-            'password' => 'required|min:4',
+            'password' => 'required|min:4|confirmed',
         ]);
 
         $user = new UserModel();

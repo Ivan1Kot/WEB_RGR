@@ -26,13 +26,13 @@
                             </select>
 
                             <p class="text-dark">Длина участка</p>
-                            <input type="number" name="area-lenght" class="form-control" placeholder="Длина (см)">
+                            <input type="number" name="area-lenght" class="form-control" placeholder="Длина (м)">
 
                             <p class="text-dark">Высота наивысшей точки участка</p>
-                            <input type="number" name="area-max-height" class="form-control" placeholder="Высота (см)">
+                            <input type="number" name="area-max-height" class="form-control" placeholder="Высота (м)">
 
                             <p class="text-dark">Ширина участка</p>
-                            <input type="number" name="area-width" class="form-control" placeholder="Ширина (см)">
+                            <input type="number" name="area-width" class="form-control" placeholder="Ширина (м)">
 
                             <p class="text-dark">Местоположение</p>
                             <select class="form-select" name="delivery" aria-label="Default select example">
