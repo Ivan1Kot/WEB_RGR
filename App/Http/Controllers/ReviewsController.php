@@ -13,12 +13,17 @@ class ReviewsController extends Controller
         //ReviewModel::find(1)->user['FIO'];
         //ReviewModel::find(1)->all();
         $data = [];
-        $datas = ReviewModel::find(1)->all();
+        if (ReviewModel::count() == 0)
+        {
+            return view('reviews', ["empty" => 1]);
+        }
+        $datas = ReviewModel::findOrFail(1)->all();
         foreach ($datas as $d)
         {
             $data[$d['id']] = [
                 'fio' => ReviewModel::find($d['id'])->user['FIO'],
                 'text' => $d['review_text'],
+                'timestamp' => $d['timestamp'],
             ];
         }
         return view('reviews', ["data" => $data]);
@@ -34,6 +39,7 @@ class ReviewsController extends Controller
 
         $user->user_email = session('email');
         $user->review_text = $request->input('reviewtext');
+        $user->timestamp = date('d.m.Y \в H:i');
 
         $user->save();
 
@@ -44,6 +50,7 @@ class ReviewsController extends Controller
             $data[$d['id']] = [
                 'fio' => ReviewModel::find($d['id'])->user['FIO'],
                 'text' => $d['review_text'],
+                'timestamp' => $d['timestamp'],
             ];
         }
 

@@ -14,18 +14,20 @@
                 </ul>
             </div>
         @endif
-        @foreach($data as $d)
-            <div class="card-deck mb-3">
-                <div class="card mb-4 box-shadow">
-                    <div class="card-header bg-dark text-lg-start">
-                        <h4 class="my-0 font-weight-normal">{{$d['fio']}}</h4>
+        @if(!empty($data))
+                @foreach($data as $d)
+                    <div class="card-deck mb-3">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-header bg-dark text-lg-start">
+                                <h4 class="my-0 font-weight-normal">{{$d['fio']}}</h4>
+                            </div>
+                            <div class="card-body bg-dark">
+                                <p class="text-lg-start">{{$d['text']}}</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body bg-dark">
-                        <p class="text-lg-start">{{$d['text']}}</p>
-                    </div>
-                </div>
-            </div>
-        @endforeach
+                @endforeach
+        @endif
             @if(session('succes') == 1)
                 <div class="alert alert-success">
                     Отзыв отправлен

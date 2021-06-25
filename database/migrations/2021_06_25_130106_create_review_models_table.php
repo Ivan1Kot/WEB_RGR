@@ -15,9 +15,10 @@ class CreateReviewModelsTable extends Migration
     {
         Schema::create('review_models', function (Blueprint $table) {
             $table->id();
-            $table->string('user-email');
-            $table->foreign('user-email')->references('email')->on('user_models')->onDelete;
+            $table->string('user_email');
+            $table->foreign('user_email')->references('email')->on('user_models')->onDelete;
             $table->text('review_text');
+            $table->string('timestamp');
         });
     }
 
