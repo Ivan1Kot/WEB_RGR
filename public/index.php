@@ -52,6 +52,7 @@ $response = tap($kernel->handle(
     $request = Request::capture()
 ))->send();
 
+date_default_timezone_set('Europe/Moscow');
 session(['isAdmin' => 0]);
 session('isAdmin', 0);
 

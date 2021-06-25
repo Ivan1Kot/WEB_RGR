@@ -19,14 +19,14 @@ use App\Http\Controllers\DBController;
 
 Route::get('/', [MainController::class, 'Main']);
 
-Route::get('/main', [MainController::class, 'Main']);
+Route::get('/main', [MainController::class, 'Main'])->name('main');
 
 Route::get('/payment', function () {
     return view('payment');
 });
 
 Route::post('/reviews', [ReviewsController::class,'AddReview']);
-Route::get('/reviews', [ReviewsController::class,'Reviews']);
+Route::get('/reviews', [ReviewsController::class,'Reviews'])->name('reviews');
 
 Route::post('/trench', [CalcController::class,'Trench']);
 Route::get('/trench', function () {
@@ -87,10 +87,5 @@ Route::get('/adminsignin', function () {
 
 Route::get('/adminpanel',[DBController::class,'Adminpanel']);
 
-Route::get('/reviews_editor', function () {
-    return view('reviews_editor');
-});
-
-Route::get('/moders_editor', function () {
-    return view('moders_editor');
-});
+Route::get('/reviews_editor/{id}', [ReviewsController::class,'EditReview']);
+Route::post('/reviews_editor/{id}', [ReviewsController::class,'EditReviewResult']);
