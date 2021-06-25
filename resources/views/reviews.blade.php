@@ -1,6 +1,6 @@
 @extends("layout")
 
-@section("page-title")Отзывы@endsection
+@section("page-title") Отзывы @endsection
 
 @section("page-content")
     <h1 class="m-5">Отзывы</h1>
@@ -24,7 +24,7 @@
                             </div>
                             <div class="card-body bg-dark">
                                 <p class="masthead-brand text-lg-start">{{$d['text']}}</p>
-                                @if(session('isUser') == 0)
+                                @if(session('isModer') == 1 | session('isAdmin') == 1)
                                     <div class="nav-masthead">
                                         <a href="/reviews_editor"><img src="images/edit.png" width="30" height="30"></a>
                                         <img src="images/delete.png" width="30" height="30">
