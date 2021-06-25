@@ -37,10 +37,16 @@
         <form action="" method="post">
             @csrf
             <h4 style="margin-top: 10%">Добавить модератора</h4>
-            <div class="nav">
-                <input type="text" name="pass-width" class="masthead-brand" style="margin-top: auto; margin-bottom: auto; margin-right: 10%; margin-left: 10%" placeholder="Имя модератора">
-                <input type="password" name="pass-width" class="nav-masthead" style="margin-top: auto; margin-bottom: auto; margin-right: 10%;" placeholder="Пароль модератора">
-                <button type="submit" href="" class="nav-masthead btn btn-lg btn-block btn-dark m-3">Добавить</button>
+            <div class="card-deck mb-3">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-header bg-dark text-lg-start">
+                        <div class="nav">
+                            <input type="text" name="pass-width" class="masthead-brand" style="margin-top: auto; margin-bottom: auto; margin-right: 10%; margin-left: 10%" placeholder="Имя модератора">
+                            <input type="password" name="pass-width" class="nav-masthead" style="margin-top: auto; margin-bottom: auto; margin-right: 10%;" placeholder="Пароль модератора">
+                            <button type="submit" href="" class="btn btn-light ms-2 m-3">Добавить</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
