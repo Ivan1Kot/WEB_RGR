@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\AdminModel;
 use App\Models\ModeratorModel;
+use App\Models\ReviewModel;
 use App\Models\UserModel;
 use Illuminate\Http\Request;
 
@@ -103,6 +104,24 @@ class DBController extends Controller
         return view('adminpanel');
     }
 
+    public function ModeratorEditor()
+    {
+        $data = [];
+        if (ModeratorModel::count() == 0)
+        {
+            return view('moders_editor', ["empty" => 1]);
+        }
+        $datas = ModeratorModel::all();
+        foreach ($datas as $d)
+        {
+            $data[$d['nickname']] = [
+                'nickname' => $d['nickname'],
+                'password' => $d['password'],
+            ];
+        }
+        return view('moders_editor', ["data" => $data]);
+    }
+
     public function CreateModerator(Request $request)
     {
         $valid = $request->validate([
@@ -116,18 +135,27 @@ class DBController extends Controller
         $user->password = $request->input('password');
 
         $user->save();
+
+        $data = [];
+        if (ModeratorModel::count() == 0)
+        {
+            return view('moders_editor', ["empty" => 1]);
+        }
+        $datas = ModeratorModel::all();
+        foreach ($datas as $d)
+        {
+            $data[$d['nickname']] = [
+                'nickname' => $d['nickname'],
+                'password' => $d['password'],
+            ];
+        }
+        return view('moders_editor', ["data" => $data]);
     }
 
-    public function DeleteModerator(Request $request)
+    public function DeleteModerator($moder)
     {
-        $valid = $request->validate([
-            'nickname' => 'required',
-        ]);
+        ModeratorModel::where('nickname', $moder)->delete();
 
-        $user = new ModeratorModel();
-
-        $user::where('nickname', $request->input('nickname'))->delete();
-
-        $user->save();
+        return redirect()->route('moders_editor');
     }
 }

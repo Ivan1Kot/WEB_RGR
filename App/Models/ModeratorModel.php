@@ -11,4 +11,6 @@ class ModeratorModel extends Model
 
     public $timestamps = false;
     public $primaryKey = 'nickname';
+    public $incrementing = false;
+    public $keyType = 'string';
 }
