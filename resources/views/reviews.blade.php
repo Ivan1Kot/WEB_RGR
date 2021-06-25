@@ -27,7 +27,7 @@
                                 @if(session('isModer') == 1 | session('isAdmin') == 1)
                                     <div class="nav-masthead">
                                         <a href="/reviews_editor/{{$d['id']}}"><img src="images/edit.png" width="30" height="30"></a>
-                                        <img src="images/delete.png" width="30" height="30">
+                                        <a href="/reviews_editor/{{$d['id']}}/delete"><img src="images/delete.png" width="30" height="30"></a>
                                     </div>
                                 @endif
                             </div>

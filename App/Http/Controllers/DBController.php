@@ -130,4 +130,11 @@ class DBController extends Controller
 
         $user->save();
     }
+
+    public function DeleteModeratorID($id)
+    {
+        ReviewModel::where('id', $id)->delete();
+
+        return redirect()->route('reviews');
+    }
 }

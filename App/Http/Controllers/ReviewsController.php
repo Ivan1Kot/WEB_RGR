@@ -84,6 +84,13 @@ class ReviewsController extends Controller
        return redirect()->route('reviews');
     }
 
+    public function DeleteReview($id)
+    {
+        ReviewModel::where('id', $id)->delete();
+
+        return redirect()->route('reviews');
+    }
+
     public function FindInData($datas, $id)
     {
         foreach ($datas as $d)
