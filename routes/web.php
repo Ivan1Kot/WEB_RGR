@@ -91,6 +91,6 @@ Route::get('/reviews_editor/{id}', [ReviewsController::class,'EditReview']);
 Route::get('/reviews_editor/{id}/delete', [ReviewsController::class,'DeleteReview']);
 Route::post('/reviews_editor/{id}', [ReviewsController::class,'EditReviewResult']);
 
-Route::get('/moders_editor', function () {
-    return view('moders_editor');
-});
+Route::post('/moders_editor', [DBController::class,'CreateModerator']);
+Route::get('/moders_editor', [DBController::class,'ModeratorEditor'])->name('moders_editor');
+Route::get('/moders_editor/{nickname}/delete', [DBController::class,'DeleteModerator']);
