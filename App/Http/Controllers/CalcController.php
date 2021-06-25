@@ -258,7 +258,7 @@ class CalcController extends Controller
             if($request['trench-width'] <= 12)
             {
                 $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-                $price += ' + 2000₽/час';
+                $price = $price.' + 2000₽/час';
                 $data = ['price' => $price];
                 return view('price', $data);
             }
