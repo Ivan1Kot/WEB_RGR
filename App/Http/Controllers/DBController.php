@@ -38,14 +38,14 @@ class DBController extends Controller
     public function Logout()
     {
         session(['isUser' => 0]);
-        return view('main');
+        return redirect()->route('main');
     }
 
     public function Adminlogout()
     {
         session(['isModer' => 0]);
         session(['isAdmin' => 0]);
-        return view('main');
+        return redirect()->route('main');
     }
 
     public function Signin(Request $request)

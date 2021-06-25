@@ -21,6 +21,7 @@ class ReviewsController extends Controller
         foreach ($datas as $d)
         {
             $data[$d['id']] = [
+                'id' => $d['id'],
                 'fio' => ReviewModel::find($d['id'])->user['FIO'],
                 'text' => $d['review_text'],
                 'timestamp' => $d['timestamp'],
@@ -48,6 +49,7 @@ class ReviewsController extends Controller
         foreach ($datas as $d)
         {
             $data[$d['id']] = [
+                'id' => $d['id'],
                 'fio' => ReviewModel::find($d['id'])->user['FIO'],
                 'text' => $d['review_text'],
                 'timestamp' => $d['timestamp'],
@@ -57,4 +59,37 @@ class ReviewsController extends Controller
         return view('reviews', ["data" => $data]);
     }
 
+    public function EditReview($id)
+    {
+        $data = [];
+        if (ReviewModel::count() == 0)
+        {
+            return view('reviews', ["empty" => 1]);
+        }
+        $datas = ReviewModel::findOrFail(1)->all();
+        $data['review_text'] = $this->FindInData($datas, $id)['review_text'];
+        $data['id'] = $id;
+
+        return view('reviews_editor', ['data' => $data]);
+    }
+
+    public function EditReviewResult(Request $request, $id)
+    {
+        $valid = $request->validate([
+            'reviewtext' => 'required',
+        ]);
+
+        ReviewModel::where('id', $id)->update(array('review_text' => $request->input('reviewtext')));
+
+       return redirect()->route('reviews');
+    }
+
+    public function FindInData($datas, $id)
+    {
+        foreach ($datas as $d)
+        {
+            if ($d['id'] == $id)
+                return $d;
+        }
+    }
 }

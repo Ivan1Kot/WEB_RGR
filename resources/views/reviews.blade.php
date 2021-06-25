@@ -26,7 +26,7 @@
                                 <p class="masthead-brand text-lg-start">{{$d['text']}}</p>
                                 @if(session('isModer') == 1 | session('isAdmin') == 1)
                                     <div class="nav-masthead">
-                                        <a href="/reviews_editor"><img src="images/edit.png" width="30" height="30"></a>
+                                        <a href="/reviews_editor/{{$d['id']}}"><img src="images/edit.png" width="30" height="30"></a>
                                         <img src="images/delete.png" width="30" height="30">
                                     </div>
                                 @endif
