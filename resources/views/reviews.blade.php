@@ -17,8 +17,20 @@
                 </div>
             </div>
         @endforeach
-    <textarea id="reviewtext" name="reviewtext"></textarea>
-    <button type="submit" href="/main" class="btn btn-lg btn-block btn-dark m-3">Оставить отзыв</button>
+            @if(session('succes') == 1)
+                <div class="alert alert-success">
+                    Отзыв отправлен
+                </div>
+            @endif
+            @if(session('isUser') == 1)
+                <form action="/reviews" method="post">
+                    @csrf
+                    <div class="container">
+                        <textarea id="reviewtext" name="reviewtext"></textarea>
+                    </div>
+                    <button type="submit" href="/main" class="btn btn-lg btn-block btn-dark m-3">Оставить отзыв</button>
+                </form>
+            @endif
     </div>
     @if(session('isUser') != 1)
         <p class="lead">Чтобы оставить отзыв о сайте или о проделанной работе необходимо <a href="signin">авторизироваться</a></p>

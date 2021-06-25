@@ -7,6 +7,13 @@
         <form name="signin-form"  method="post" action="/signin">
             @csrf
             <div class="container">
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach($errors->any() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </div>
+                @endif
                 <div class="card-deck mb-3 text-center">
                     <div class="card mb-4 box-shadow">
                         <div class="card-header">
@@ -20,7 +27,8 @@
                             <input type="password" name="user-password" class="form-control" placeholder="Введите пароль">
 
                             <button type="submit" href="/main" class="btn btn-lg btn-block btn-primary m-3">Войти</button>
-                            <p class="text-dark">Нет аккаунта?<a class="text-dark" href="login">Зарегестрироваться.</a></p>
+                            <p class="text-dark">Нет аккаунта? <a class="text-dark" href="login">Зарегестрироваться.</a></p>
+                            <p class="text-dark">Войти как <a class="text-dark" href="adminsignin">админ/модератор</a>.</p>
                         </div>
                     </div>
                 </div>

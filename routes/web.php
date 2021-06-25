@@ -25,7 +25,8 @@ Route::get('/payment', function () {
     return view('payment');
 });
 
-Route::get('/reviews', [ReviewsController::class, 'Reviews']);
+Route::post('/reviews', [ReviewsController::class,'AddReview']);
+Route::get('/reviews', [ReviewsController::class,'Reviews']);
 
 Route::post('/trench', [CalcController::class,'Trench']);
 Route::get('/trench', function () {
@@ -67,6 +68,8 @@ Route::get('/price', function () {
 
 Route::get('/logout',[DBController::class,'Logout']);
 
+Route::get('/adminlogout',[DBController::class,'Adminlogout']);
+
 Route::post('/login', [DBController::class,'CreateUser']);
 Route::get('/login', function () {
     return view('login', ['login' => 0]);
@@ -76,3 +79,10 @@ Route::post('/signin', [DBController::class,'Signin']);
 Route::get('/signin', function () {
     return view('signin');
 });
+
+Route::post('/adminsignin', [DBController::class,'Adminsignin']);
+Route::get('/adminsignin', function () {
+    return view('adminsignin');
+});
+
+Route::get('/adminpanel',[DBController::class,'Adminpanel']);

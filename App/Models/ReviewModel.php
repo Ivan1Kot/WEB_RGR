@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ReviewModel extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     public function user()
     {
-        return $this->hasOne(UserModel::class, 'email', 'user-email');
+        return $this->hasOne(UserModel::class, 'email', 'user_email');
     }
 }

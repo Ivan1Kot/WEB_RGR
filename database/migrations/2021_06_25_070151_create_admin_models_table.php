@@ -14,9 +14,9 @@ class CreateAdminModelsTable extends Migration
     public function up()
     {
         Schema::create('admin_models', function (Blueprint $table) {
-            $table->string('email');
+            $table->string('nickname');
             $table->string('password');
-            $table->primary('email');
+            $table->primary('nickname');
         });
     }
 

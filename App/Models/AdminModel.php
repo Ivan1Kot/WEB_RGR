@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AdminModel extends Model
 {
     use HasFactory;
+
+    public $timestamps = false;
+    public $primaryKey = 'nickname';
 }

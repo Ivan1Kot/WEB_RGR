@@ -21,7 +21,7 @@
                         </div>
 
                         <div class="card-body">
-                            <button type="button" href="" class="btn btn-lg btn-block btn-primary m-3">Выйти</button>
+                            <button type="button" href="/adminlogout" class="btn btn-lg btn-block btn-primary m-3">Выйти</button>
                         </div>
                     </div>
                 </div>
