@@ -24,7 +24,7 @@
                     <a class="nav-link" href="/reviews">Отзывы</a>
                     <a class="nav-link ms-5" href="/reviews"></a>
                     @if(session('isModer') == 1)
-                        <a class="nav-link" href="/reviews">Панель модератора</a>
+                        <a class="nav-link" href="/moderpanel">Панель модератора</a>
                         <a class="nav-link" href="/reviews">Редактор отзывов</a>
                         <a class="nav-link ms-5" href="/reviews"></a>
                         <a class="btn btn-light ms-2" href="/adminlogout">Модератор: {{session('nickname')}} - выйти</a>

@@ -103,6 +103,10 @@ class DBController extends Controller
     {
         return view('adminpanel');
     }
+    public function Moderpanel()
+    {
+        return view('moderpanel');
+    }
 
     public function ModeratorEditor()
     {

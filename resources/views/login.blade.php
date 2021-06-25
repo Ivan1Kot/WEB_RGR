@@ -41,7 +41,7 @@
                 </div>
                 @if(session('isUser') == 1)
                     <div class="alert alert-success">
-                        Вы успешно зарегестрированы!
+                        Вы успешно зарегестрированы! <a class="text-dark" href="logout">Выйти из аккаунта</a>.
                     </div>
                 @endif
             </div>
