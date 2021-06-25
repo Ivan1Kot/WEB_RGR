@@ -1,12 +1,21 @@
 @extends("layout")
 
-@section("page-title")Регистрация@endsection
+@section("page-title") Регистрация @endsection
 
 @section("page-content")
     <h1>Регистрация</h1>
         <form name="login-form"  method="post" action="/login">
             @csrf
             <div class="container">
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="card-deck mb-3 text-center">
                     <div class="card mb-4 box-shadow">
                         <div class="card-header">

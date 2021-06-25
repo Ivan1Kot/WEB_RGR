@@ -61,6 +61,12 @@ class DBController extends Controller
             session(['username' => UserModel::find($request->input('user-email'))->FIO]);
             session(['email' => $request->input('user-email')]);
         }
+        else
+        {
+            $valid = $request->validate([
+                'user-password' => 'confirmed',
+            ]);
+        }
 
         return view('signin');
     }

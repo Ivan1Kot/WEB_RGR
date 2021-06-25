@@ -5,6 +5,15 @@
 @section("page-content")
     <h1 class="m-5">Отзывы</h1>
     <div class="container">
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         @foreach($data as $d)
             <div class="card-deck mb-3">
                 <div class="card mb-4 box-shadow">

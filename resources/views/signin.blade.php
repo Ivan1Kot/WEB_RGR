@@ -1,6 +1,6 @@
 @extends("layout")
 
-@section("page-title")Авторизация@endsection
+@section("page-title") Авторизация @endsection
 
 @section("page-content")
     <h1>Авторизиция</h1>
@@ -9,9 +9,11 @@
             <div class="container">
                 @if($errors->any())
                     <div class="alert alert-danger">
-                        @foreach($errors->any() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
+                        <ul>
+                           @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 @endif
                 <div class="card-deck mb-3 text-center">
