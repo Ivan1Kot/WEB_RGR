@@ -1,6 +1,6 @@
 @extends("layout")
 
-@section("page-title")Отзывы@endsection
+@section("page-title") Отзывы @endsection
 
 @section("page-content")
     <h1 class="m-5">Отзывы</h1>
@@ -43,7 +43,7 @@
             @if(session('isUser') == 1)
                 <form action="/reviews" method="post">
                     @csrf
-                    <p class="m-5">Оставьте свой отзыв о сайте!</p>
+                    <p style="margin-top: 10%">Оставьте свой отзыв о сайте!</p>
                     <div class="container">
                         <textarea class="form-control" id="reviewtext" name="reviewtext"></textarea>
                     </div>

@@ -13,15 +13,15 @@
                             <h4 class="my-0 font-weight-normal text-dark">Выбери действие</h4>
                         </div>
                         <div class="card-body">
-                            <a type="button" href="/reviews" class="btn btn-lg btn-block btn-primary">Редактировать отзывы</a>
+                            <a href="/reviews" class="btn btn-lg btn-block btn-primary">Редактировать отзывы</a>
                         </div>
 
                         <div class="card-body">
-                            <a type="button" href="" class="btn btn-lg btn-block btn-primary">Добавить/Удалить модератора</a>
+                            <a href="/moders_editor" class="btn btn-lg btn-block btn-primary">Добавить/Удалить модератора</a>
                         </div>
 
                         <div class="card-body">
-                            <button type="button" href="/adminlogout" class="btn btn-lg btn-block btn-primary m-3">Выйти</button>
+                            <a href="/adminlogout" class="btn btn-lg btn-block btn-primary m-3">Выйти</a>
                         </div>
                     </div>
                 </div>

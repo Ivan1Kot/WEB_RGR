@@ -90,3 +90,7 @@ Route::get('/adminpanel',[DBController::class,'Adminpanel']);
 Route::get('/reviews_editor', function () {
     return view('reviews_editor');
 });
+
+Route::get('/moders_editor', function () {
+    return view('moders_editor');
+});

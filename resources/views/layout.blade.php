@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/4.0/examples/pricing/pricing.css" rel="stylesheet">
-    <link href="WEB_RGR/public/summernote.css" rel="stylesheet"/>
 
 </head>
 
@@ -33,7 +32,7 @@
                     @if(session('isAdmin') == 1)
                         <a class="nav-link" href="/adminpanel">Панель администратора</a>
                         <a class="nav-link" href="/reviews">Редактор отзывов</a>
-                        <a class="nav-link" href="/reviews">Редактор модераторов</a>
+                        <a class="nav-link" href="/moders_editor">Редактор модераторов</a>
                         <a class="nav-link ms-5" href="/reviews"></a>
                         <a class="btn btn-light ms-2" href="/adminlogout">Админ: {{session('nickname')}} - выйти</a>
                     @endif

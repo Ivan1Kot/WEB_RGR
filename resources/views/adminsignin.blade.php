@@ -1,6 +1,6 @@
 @extends("layout")
 
-@section("page-title")Админ-панель@endsection
+@section("page-title") Админ-панель @endsection
 
 @section("page-content")
     <h1>Войти как администратор/модератор</h1>
