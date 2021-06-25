@@ -43,11 +43,17 @@
             @if(session('isUser') == 1)
                 <form action="/reviews" method="post">
                     @csrf
-                    <p style="margin-top: 10%">Оставьте свой отзыв о сайте!</p>
-                    <div class="container">
-                        <textarea class="form-control" id="reviewtext" name="reviewtext"></textarea>
+                    <h4 style="margin-top: 10%">Оставьте свой отзыв о сайте!</h4>
+                    <div class="card-deck mb-3">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-header bg-dark">
+                                <div class="container">
+                                    <textarea class="form-control mt-3" id="reviewtext" name="reviewtext"></textarea>
+                                </div>
+                                <button type="submit" href="/main" class="btn btn-lg btn-block btn-light m-3">Оставить отзыв</button>
+                            </div>
+                        </div>
                     </div>
-                    <button type="submit" href="/main" class="btn btn-lg btn-block btn-dark m-3">Оставить отзыв</button>
                 </form>
             @endif
     </div>
