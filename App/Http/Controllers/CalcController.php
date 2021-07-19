@@ -164,7 +164,7 @@ class CalcController extends Controller
 
         $price = 0;
         $cubes = ($request['area-max-length'] /2) * $request['area-lenght'] * $request['area-width'];
-        $time = $cubes / 7;
+        $time = intval($cubes / 7000);
         if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
         {
             $price = $time * 1500;
@@ -205,7 +205,7 @@ class CalcController extends Controller
 
         $price = 0;
         $cubes = ($request['area-max-length'] /2) * $request['area-lenght'] * $request['area-width'];
-        $time = $cubes / 7;
+        $time = intval($cubes / 7000);
         if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
         {
             $price = $time * 1500;
@@ -249,7 +249,7 @@ class CalcController extends Controller
             if($request['trench-width'] <= 12)
             {
                 $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-                $price += ' + 2000₽/час';
+                $price = $price.' + 2000₽/час';
                 $data = ['price' => $price];
                 return view('price', $data);
             }
@@ -272,7 +272,7 @@ class CalcController extends Controller
                 $price = 600 * $request['trench-width'];
             }
         }
-        else
+        else if ($request['hole-depth'] > 200)
         {
             $price = 'Индивидуальный звонок';
             $data = ['price' => $price];
@@ -310,7 +310,7 @@ class CalcController extends Controller
 
         $price = 0;
         $cubes = 1.2 * $request['area-lenght'] * $request['area-width'] * $request['foundation-depth']/1000000;
-        $time = $cubes / 7;
+        $time = intval($cubes / 7000);
         if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
         {
             $price = $time * 1500;
