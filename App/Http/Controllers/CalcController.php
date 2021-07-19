@@ -128,7 +128,9 @@ class CalcController extends Controller
         else $price = 'Индивидуальный звонок';
 
 
-        $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
+        $price = $price.$this->GetPriceLocation($request['delivery'], $request['distance']);
+
+
         if($request['ground-type']>1)
         {
             $price = $price."₽ + 2500₽/час";
