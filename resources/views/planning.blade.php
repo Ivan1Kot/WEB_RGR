@@ -22,13 +22,17 @@
                             <h4 class="my-0 font-weight-normal text-dark">Планировка</h4>
                         </div>
                         <div class="card-body">
-                            <p class="text-dark">Ширина проезда</p>
+                            <p class="text-dark">Ширина проезда (нужно понять, сможет ли эксковатор проехать на участок)
+
+</p>
                             <input type="number" name="pass-width" class="form-control" placeholder="Ширина (см)">
 
-                            <p class="text-dark">Высота проезда</p>
+                            <p class="text-dark">Высота проезда (нужно понять, сможет ли эксковатор проехать на участок)
+
+</p>
                             <input type="number" name="pass-height" class="form-control" placeholder="Высота (см)">
 
-                            <p class="text-dark">Нужен поиск коммуникаций?</p>
+                            <p class="text-dark">Нужен поиск коммуникаций? (Поиск коммуникаций нужен для того, чтоб в процессе работы эвакуатор не задел никаких коммуникаций)</p>
                             <select class="form-select" name="communications-search" aria-label="Default select example">
                                 <option selected value="1">Нет</option>
                                 <option value="2">Да</option>

@@ -17,7 +17,7 @@ class ReviewsController extends Controller
         {
             return view('reviews', ["empty" => 1]);
         }
-        $datas = ReviewModel::findOrFail(1)->all();
+        $datas = ReviewModel::all();
         foreach ($datas as $d)
         {
             $data[$d['id']] = [
@@ -45,7 +45,7 @@ class ReviewsController extends Controller
         $user->save();
 
         $data = [];
-        $datas = ReviewModel::find(1)->all();
+        $datas = ReviewModel::all();
         foreach ($datas as $d)
         {
             $data[$d['id']] = [
@@ -66,7 +66,7 @@ class ReviewsController extends Controller
         {
             return view('reviews', ["empty" => 1]);
         }
-        $datas = ReviewModel::findOrFail(1)->all();
+        $datas = ReviewModel::all();
         $data['review_text'] = $this->FindInData($datas, $id)['review_text'];
         $data['id'] = $id;
 
