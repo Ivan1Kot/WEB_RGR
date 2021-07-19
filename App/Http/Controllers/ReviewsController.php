@@ -22,7 +22,7 @@ class ReviewsController extends Controller
         {
             $data[$d['id']] = [
                 'id' => $d['id'],
-                'fio' => ReviewModel::find($d['id'])->user['FIO'],
+                'fio' => $d['user_name'],
                 'text' => $d['review_text'],
                 'timestamp' => $d['timestamp'],
             ];
@@ -34,12 +34,15 @@ class ReviewsController extends Controller
     {
         $valid = $request->validate([
             'reviewtext' => 'required',
+            'username' => 'required',
         ]);
 
         $user = new ReviewModel();
 
-        $user->user_email = session('email');
+        $user->user_email = 'example@mail.com';
         $user->review_text = $request->input('reviewtext');
+        $user->user_name = $request->input('username');
+        $user->ip = $_SERVER['REMOTE_ADDR'];
         $user->timestamp = date('d.m.Y \в H:i');
 
         $user->save();
@@ -50,7 +53,8 @@ class ReviewsController extends Controller
         {
             $data[$d['id']] = [
                 'id' => $d['id'],
-                'fio' => ReviewModel::find($d['id'])->user['FIO'],
+                //'fio' => ReviewModel::find($d['id'])->user['FIO'],
+                'fio' => $d['user_name'],
                 'text' => $d['review_text'],
                 'timestamp' => $d['timestamp'],
             ];

@@ -40,7 +40,6 @@
                     Отзыв отправлен
                 </div>
             @endif
-            @if(session('isUser') == 1)
                 <form action="/reviews" method="post">
                     @csrf
                     <h4 style="margin-top: 10%">Оставьте свой отзыв о сайте!</h4>
@@ -48,16 +47,16 @@
                         <div class="card mb-4 box-shadow">
                             <div class="card-header bg-dark">
                                 <div class="container">
-                                    <textarea class="form-control mt-3" id="reviewtext" name="reviewtext"></textarea>
+                                    <input class="form-control mt-3" required type="text" id="username" name="username" placeholder="Ваше имя"/>
+                                    <textarea class="form-control mt-3" required id="reviewtext" name="reviewtext" placeholder="Ваш отзыв"></textarea>
                                 </div>
                                 <button type="submit" href="/main" class="btn btn-lg btn-block btn-light m-3">Оставить отзыв</button>
                             </div>
                         </div>
                     </div>
                 </form>
-            @endif
     </div>
-    @if(session('isUser') != 1)
+    <!-- @if(session('isUser') != 1)
         <p class="lead">Чтобы оставить отзыв о сайте или о проделанной работе необходимо <a href="signin">авторизироваться</a></p>
-    @endif
+    @endif -->
 @endsection
