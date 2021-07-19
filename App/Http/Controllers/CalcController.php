@@ -125,10 +125,15 @@ class CalcController extends Controller
                     $data = ['price' => $price];
                     return view('price', $data);
                 }
-        else $price = 'Индивидуальный звонок';
+        else 
+        {
+            $price = 'Индивидуальный звонок';
+            $data = ['price' => $price];
+            return view('price', $data);
+        }
 
 
-        $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
+        $price = $price.$this->GetPriceLocation($request['delivery'], $request['distance']);
         if($request['ground-type']>1)
         {
             $price = $price."₽ + 2500₽/час";
