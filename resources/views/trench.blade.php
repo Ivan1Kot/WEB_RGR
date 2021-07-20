@@ -52,17 +52,17 @@
                             </div>
 
                             <div id="hiden4" style="display: none">
-                                <p class="text-dark">Длина траншеи</p>
+                                <p class="text-dark">Длина траншеи в метрах</p>
                                 <input type="number" name="trench-lenght" class="form-control" placeholder="Длина (м)">
                             </div>
 
                             <div id="hiden5" style="display: none">
-                                <p class="text-dark">Глубина траншеи</p>
+                                <p class="text-dark">Глубина траншеи в сантиметрах</p>
                                 <input type="number" name="trench-depth" class="form-control" placeholder="Глубина (см)">
                             </div>
 
                             <div id="hiden6" style="display: none">
-                                <p class="text-dark">Ширина траншеи</p>
+                                <p class="text-dark">Ширина траншеи в сантиметрах</p>
                                 <input type="number" name="trench-width" class="form-control" placeholder="Ширина (см)">
                             </div>
 
