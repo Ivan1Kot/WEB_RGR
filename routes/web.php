@@ -21,8 +21,8 @@ Route::get('/', [MainController::class, 'Main']);
 
 Route::get('/main', [MainController::class, 'Main'])->name('main');
 
-Route::get('/payment', function () {
-    return view('payment');
+Route::get('/choise', function () {
+    return view('choise');
 });
 
 Route::post('/reviews', [ReviewsController::class,'AddReview']);
