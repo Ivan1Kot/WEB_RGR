@@ -111,7 +111,11 @@ class CalcController extends Controller
         if($request['pit-lenght'] <= 250 && $request['pit-depth'] <= 220 && $request['pit-lenghtpit-width'] <= 400)
             if($request['ground-type'] == 1)
                 if($request['delivery'] == 1)
+                {
                     $price = 9000;
+                    $data = ['price' => $price];
+                    return view('price', $data);
+                }
                 else
                     $price = 7000;
             else if($request['delivery'] == 1) {
@@ -164,7 +168,7 @@ class CalcController extends Controller
 
         $price = 0;
         $cubes = ($request['area-max-length'] /2) * $request['area-lenght'] * $request['area-width'];
-        $time = intval($cubes / 7000);
+        $time = intval($cubes / 7);
         if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
         {
             $price = $time * 1500;
@@ -205,7 +209,7 @@ class CalcController extends Controller
 
         $price = 0;
         $cubes = ($request['area-max-length'] /2) * $request['area-lenght'] * $request['area-width'];
-        $time = intval($cubes / 7000);
+        $time = intval($cubes / 7);
         if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
         {
             $price = $time * 1500;
