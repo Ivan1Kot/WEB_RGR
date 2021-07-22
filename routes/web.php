@@ -27,7 +27,7 @@ Route::get('/choise', function () {
 
 Route::get('/clean', function () {
     session()->forget('session-data');
-    session()->push('session-data', []);
+    session()->put('session-data', array());
     return redirect()->route('main');
 })->name('Clean');
 

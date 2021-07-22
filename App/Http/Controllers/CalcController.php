@@ -28,6 +28,7 @@ class CalcController extends Controller
         }
 
         $data = [
+            'item-type' => 'trench',
             'ground-type' => $request['ground-type'],
             'pass-width' => $request['pass-width'],
             'pass-height' => $request['pass-height'],
@@ -35,6 +36,225 @@ class CalcController extends Controller
             'trench-lenght' => $request['trench-lenght'],
             'trench-depth' => $request['trench-depth'],
             'trench-width' => $request['trench-width'],
+            'delivery' => $request['delivery'],
+            'distance' => $request['distance'] = null ? 0 : $request['distance']
+        ];
+        session()->push('session-data', $data);
+
+        $redirpage = $request['redirpage'];
+        if($redirpage > 0)
+        {
+            return $this->RedirectToNextForm($redirpage);
+        }
+        else
+        {
+            return $this->SummaryAllForms();
+        }
+    }
+
+    public function Pit(Request $request)
+    {
+        $valid = $request->validate([
+            'ground-type' => 'required|min:1',
+            'pass-width' => 'required',
+            'pass-height' => 'required',
+            'communications-search' => 'required',
+            'pit-lenght' => 'required',
+            'pit-depth' => 'required',
+            'pit-width' => 'required',
+            'delivery' => 'required',
+        ]);
+
+        if($request['delivery'] > 1)
+        {
+            $valid = $request->validate([
+                'distance' => 'required'
+            ]);
+        }
+
+        $data = [
+            'item-type' => 'pit',
+            'ground-type' => $request['ground-type'],
+            'pass-width' => $request['pass-width'],
+            'pass-height' => $request['pass-height'],
+            'communications-search' => $request['communications-search'],
+            'pit-lenght' => $request['pit-lenght'],
+            'pit-depth' => $request['pit-depth'],
+            'pit-width' => $request['pit-width'],
+            'delivery' => $request['delivery'],
+            'distance' => $request['distance'] = null ? 0 : $request['distance']
+        ];
+        session()->push('session-data', $data);
+
+        $redirpage = $request['redirpage'];
+        if($redirpage > 0)
+        {
+            return $this->RedirectToNextForm($redirpage);
+        }
+        else
+        {
+            return $this->SummaryAllForms();
+        }
+    }
+
+    public function Planning(Request $request)
+    {
+        $valid = $request->validate([
+            'pass-width' => 'required',
+            'pass-height' => 'required',
+            'communications-search' => 'required',
+            'area-lenght' => 'required',
+            'area-max-length' => 'required',
+            'area-width' => 'required',
+            'delivery' => 'required',
+        ]);
+
+        if($request['delivery'] > 1)
+        {
+            $valid = $request->validate([
+                'distance' => 'required'
+            ]);
+        }
+
+        $data = [
+            'item-type' => 'planning',
+            'ground-type' => $request['ground-type'],
+            'pass-width' => $request['pass-width'],
+            'pass-height' => $request['pass-height'],
+            'communications-search' => $request['communications-search'],
+            'area-lenght' => $request['area-lenght'],
+            'area-max-length' => $request['area-max-length'],
+            'area-width' => $request['area-width'],
+            'delivery' => $request['delivery'],
+            'distance' => $request['distance'] = null ? 0 : $request['distance']
+        ];
+        session()->push('session-data', $data);
+
+        $redirpage = $request['redirpage'];
+        if($redirpage > 0)
+        {
+            return $this->RedirectToNextForm($redirpage);
+        }
+        else
+        {
+            return $this->SummaryAllForms();
+        }
+    }
+
+    public function Terracing(Request $request)
+    {
+        $valid = $request->validate([
+            'pass-width' => 'required',
+            'pass-height' => 'required',
+            'communications-search' => 'required',
+            'area-lenght' => 'required',
+            'area-max-length' => 'required',
+            'area-width' => 'required',
+            'delivery' => 'required',
+        ]);
+
+        if($request['delivery'] > 1)
+        {
+            $valid = $request->validate([
+                'distance' => 'required'
+            ]);
+        }
+
+        $data = [
+            'item-type' => 'terracing',
+            'ground-type' => $request['ground-type'],
+            'pass-width' => $request['pass-width'],
+            'pass-height' => $request['pass-height'],
+            'communications-search' => $request['communications-search'],
+            'area-lenght' => $request['area-lenght'],
+            'area-max-length' => $request['area-max-length'],
+            'area-width' => $request['area-width'],
+            'delivery' => $request['delivery'],
+            'distance' => $request['distance'] = null ? 0 : $request['distance']
+        ];
+        session()->push('session-data', $data);
+
+        $redirpage = $request['redirpage'];
+        if($redirpage > 0)
+        {
+            return $this->RedirectToNextForm($redirpage);
+        }
+        else
+        {
+            return $this->SummaryAllForms();
+        }
+    }
+
+    public function Hydrodrill(Request $request)
+    {
+        $valid = $request->validate([
+            'pass-width' => 'required',
+            'pass-height' => 'required',
+            'communications-search' => 'required',
+            'hole-depth' => 'required',
+            'trench-width' => 'required',
+            'delivery' => 'required',
+        ]);
+
+        if($request['delivery'] > 1)
+        {
+            $valid = $request->validate([
+                'distance' => 'required'
+            ]);
+        }
+
+        $data = [
+            'item-type' => 'terracing',
+            'ground-type' => $request['ground-type'],
+            'pass-width' => $request['pass-width'],
+            'pass-height' => $request['pass-height'],
+            'communications-search' => $request['communications-search'],
+            'hole-depth' => $request['hole-depth'],
+            'trench-width' => $request['trench-width'],
+            'delivery' => $request['delivery'],
+            'distance' => $request['distance'] = null ? 0 : $request['distance']
+        ];
+        session()->push('session-data', $data);
+
+        $redirpage = $request['redirpage'];
+        if($redirpage > 0)
+        {
+            return $this->RedirectToNextForm($redirpage);
+        }
+        else
+        {
+            return $this->SummaryAllForms();
+        }
+    }
+
+    public function FoundationPit(Request $request)
+    {
+        $valid = $request->validate([
+            'pass-width' => 'required',
+            'pass-height' => 'required',
+            'communications-search' => 'required',
+            'area-lenght' => 'required',
+            'foundation-depth' => 'required',
+            'area-width' => 'required',
+            'delivery' => 'required',
+        ]);
+
+        if($request['delivery'] > 1)
+        {
+            $valid = $request->validate([
+                'distance' => 'required'
+            ]);
+        }
+
+        $data = [
+            'item-type' => 'terracing',
+            'ground-type' => $request['ground-type'],
+            'pass-width' => $request['pass-width'],
+            'pass-height' => $request['pass-height'],
+            'communications-search' => $request['communications-search'],
+            'area-lenght' => $request['area-lenght'],
+            'foundation-depth' => $request['foundation-depth'],
+            'area-width' => $request['area-width'],
             'delivery' => $request['delivery'],
             'distance' => $request['distance'] = null ? 0 : $request['distance']
         ];
@@ -90,14 +310,43 @@ class CalcController extends Controller
 
         foreach (session('session-data') as $item)
         {
-            if($item['pass-width'] < 150 || $item['pass-height'] < 250)
+            if($item['pass-width'] >= 150 & $item['pass-height'] >= 250)
+            {
+               switch ($item)
+               {
+                   case 'trench':
+                       break;
+                   case 'pit':
+                       break;
+                   case 'trench':
+                       break;
+                   case 'trench':
+                       break;
+                   case 'trench':
+                       break;
+                   case 'trench':
+                       break;
+                   case 'trench':
+                       break;
+               }
+            }
+            else if($item['pass-width'] >= 160 & $item['pass-height'] >= 200)
+            {
+                switch ($item['item-type'])
+                {
+                    case 'pit':
+                    case 'trench':
+                        $price['main'] += 1000;
+                        break;
+                }
+            }
+            else //индивидуальный звонок
             {
                 $price['error'] = 1;
                 $price['errormessage'] = 'Индивидуальный звонок';
                 break;
             }
         }
-
         $data = ['price' => $price];
         return view('price', $data);
     }
@@ -202,7 +451,7 @@ class CalcController extends Controller
 
 
 
-    public function Pit(Request $request)
+    public function PitSummary(Request $request)
     {
         $valid = $request->validate([
             'ground-type' => 'required|min:1',
@@ -262,7 +511,39 @@ class CalcController extends Controller
         return view('price', $data);
     }
 
-    public function Planning(Request $request)
+    public function PlanningSummary(Request $request)
+    {
+
+        $price = 0;
+        $cubes = ($request['area-max-length'] /2) * $request['area-lenght'] * $request['area-width'];
+        $time = intval($cubes / 7);
+        if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
+        {
+            $price = $time * 1500;
+        }
+        else if($request['pass-width'] >= 160 && $request['pass-height'] >= 200)
+        {
+            $price = $time * 1700;
+        }
+        $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
+        if($request['ground-type']>5)
+        {
+            $price = $price."₽ + 2500₽/час";
+        }
+        else
+        {
+            $price = $price."₽";
+        }
+        if($request['pass-width'] < 150 || $request['pass-height'] < 200 || $request['communications-search'] == 2)
+        {
+            $price = 'Индивидуальный звонок';
+        }
+
+        $data = ['price' => $price];
+        return view('price', $data);
+    }
+
+    public function TerracingSummary(Request $request)
     {
         $valid = $request->validate([
             'pass-width' => 'required',
@@ -303,48 +584,7 @@ class CalcController extends Controller
         return view('price', $data);
     }
 
-    public function Terracing(Request $request)
-    {
-        $valid = $request->validate([
-            'pass-width' => 'required',
-            'pass-height' => 'required',
-            'communications-search' => 'required',
-            'area-lenght' => 'required',
-            'area-max-length' => 'required',
-            'area-width' => 'required',
-            'delivery' => 'required',
-        ]);
-
-        $price = 0;
-        $cubes = ($request['area-max-length'] /2) * $request['area-lenght'] * $request['area-width'];
-        $time = intval($cubes / 7);
-        if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
-        {
-            $price = $time * 1500;
-        }
-        else if($request['pass-width'] >= 160 && $request['pass-height'] >= 200)
-        {
-            $price = $time * 1700;
-        }
-        $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-        if($request['ground-type']>5)
-        {
-            $price = $price."₽ + 2500₽/час";
-        }
-        else
-        {
-            $price = $price."₽";
-        }
-        if($request['pass-width'] < 150 || $request['pass-height'] < 200 || $request['communications-search'] == 2)
-        {
-            $price = 'Индивидуальный звонок';
-        }
-
-        $data = ['price' => $price];
-        return view('price', $data);
-    }
-
-    public function Hydrodrill(Request $request)
+    public function HydrodrillSummary(Request $request)
     {
         $valid = $request->validate([
             'pass-width' => 'required',
@@ -408,7 +648,7 @@ class CalcController extends Controller
         return view('price', $data);
     }
 
-    public function FoundationPit(Request $request)
+    public function FoundationPitSummary(Request $request)
     {
         $valid = $request->validate([
             'pass-width' => 'required',
