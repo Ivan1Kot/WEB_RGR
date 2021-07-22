@@ -23,7 +23,7 @@ Route::get('/main', [MainController::class, 'Main'])->name('main');
 
 Route::get('/choise', function () {
     return view('choise');
-});
+})->name('choise');
 
 Route::post('/reviews', [ReviewsController::class,'AddReview']);
 Route::get('/reviews', [ReviewsController::class,'Reviews'])->name('reviews');
@@ -41,26 +41,26 @@ Route::get('/pit', function () {
 Route::post('/planning', [CalcController::class,'Planning']);
 Route::get('/planning', function () {
     return view('planning');
-});
+})->name('planning');
 
 Route::post('/terracing', [CalcController::class,'Terracing']);
 Route::get('/terracing', function () {
     return view('terracing');
-});
+})->name('terracing');
 
 Route::post('/hydrodrill', [CalcController::class,'Hydrodrill']);
 Route::get('/hydrodrill', function () {
     return view('hydrodrill');
-});
+})->name('hydrodrill');
 
 Route::post('/foundation_pit', [CalcController::class,'FoundationPit']);
 Route::get('/foundation_pit', function () {
     return view('foundation_pit');
-});
+})->name('foundation_pit');
 
 Route::get('/hydrohammer', function () {
     return view('hydrohammer');
-});
+})->name('hydrohammer');
 
 Route::get('/price', function () {
     return view('price');

@@ -43,20 +43,40 @@ class CalcController extends Controller
         $redirpage = $request['redirpage'];
         if($redirpage > 0)
         {
-            CalcController::RedirectToNextForm($redirpage);
+            return $this->RedirectToNextForm($redirpage);
         }
-        CalcController::SummaryAllForms();
+        else
+        {
+            return $this->SummaryAllForms();
+        }
     }
 
-    public function RedirectToNextForm(int $redirpage)
+    public function RedirectToNextForm($redirpage)
     {
         switch ($redirpage){
             case 1:
-                redirect()->route('trench');
+                return redirect()->route('trench');
                 break;
             case 2:
-                redirect()->route('pit');
+                return redirect()->route('pit');
                 break;
+            case 3:
+                return redirect()->route('planning');
+                break;
+            case 4:
+                return redirect()->route('terracing');
+                break;
+            case 5:
+                return redirect()->route('hydrohammer');
+                break;
+            case 6:
+                return redirect()->route('hydrodrill');
+                break;
+            case 7:
+                return redirect()->route('foundation_pit');
+                break;
+            default:
+                return redirect()->route('choise');
         }
     }
 
@@ -67,7 +87,9 @@ class CalcController extends Controller
             'hour' => 0
         ];
 
-        foreach (session('session-data') as $item) {
+        foreach (session('session-data') as $item)
+        {
+            $item = 0;
         }
 
         $data = ['price' => $price];
