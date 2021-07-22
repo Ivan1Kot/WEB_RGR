@@ -25,6 +25,10 @@ Route::get('/choise', function () {
     return view('choise');
 })->name('choise');
 
+Route::get('/clean', function () {
+    return view('clean');
+})->name('Clean');
+
 Route::post('/reviews', [ReviewsController::class,'AddReview']);
 Route::get('/reviews', [ReviewsController::class,'Reviews'])->name('reviews');
 

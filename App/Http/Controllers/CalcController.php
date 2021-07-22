@@ -83,13 +83,19 @@ class CalcController extends Controller
     public function SummaryAllForms()
     {
         $price = [
-            'main' => 0,
-            'hour' => 0
+            'main' => 10,
+            'hour' => 50,
+            'error' => 0
         ];
 
         foreach (session('session-data') as $item)
         {
-            $item = 0;
+            if($item['pass-width'] < 150 || $item['pass-height'] < 250)
+            {
+                $price['error'] = 1;
+                $price['errormessage'] = 'Индивидуальный звонок';
+                break;
+            }
         }
 
         $data = ['price' => $price];
