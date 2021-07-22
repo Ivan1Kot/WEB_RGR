@@ -82,12 +82,12 @@
                                     <input type="number" name="distance" class="form-control" placeholder="Введите расстояние (Если вы не в Симферополе) (км)">
                                 </div>
 
-                                <button type="submit" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                                <button id="finalbut1" type="button" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
                                 <button id="addbut1" type="button" class="btn btn-lg btn-block btn-primary m-3">Добавить услугу</button>
                             </div>
 
                             <div id="hiden9" style="display: none">
-                            <button type="submit" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                                <button id="finalbut2" type="button" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
                                 <button id="addbut2" type="button" class="btn btn-lg btn-block btn-primary m-3">Добавить услугу</button>
                             </div>
 
@@ -149,6 +149,20 @@
                .attr("name", "redirpage").val(this.value);
            $('#mainform').append(input);
            $('form#mainform').submit();
+        });
+        $("#finalbut1").click('keyup mouseup', function () {
+            var input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "redirpage").val(0);
+            $('#mainform').append(input);
+            $('form#mainform').submit();
+        });
+        $("#finalbut2").click('keyup mouseup', function () {
+            var input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "redirpage").val(0);
+            $('#mainform').append(input);
+            $('form#mainform').submit();
         });
     </script>
 @endsection
