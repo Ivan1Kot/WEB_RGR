@@ -44,7 +44,7 @@
 
                             <div id="hiden3" style="display: none">
                                 <p class="text-dark">Нужен поиск коммуникаций? (Поиск коммуникаций нужен для того, чтоб в процессе работы эвакуатор не задел никаких коммуникаций)</p>
-                                <select class="form-select" name="communications-search" aria-label="Default select example">
+                                <select id="comselect" class="form-select" name="communications-search" aria-label="Default select example">
                                     <option selected>Выберите, нужен ли поиск коммуникаций</option>
                                     <option value="1">Нет</option>
                                     <option value="2">Да</option>
@@ -93,10 +93,15 @@
 
                             <div id="hiden10" style="display: none">
                                 <p class="text-dark">Какую услугу добавить к этой?</p>
-                                <select id="addselect" class="form-select" name="communications-search" aria-label="Default select example">
+                                <select id="addselect" class="form-select" name="adding" aria-label="Default select example">
                                     <option selected>Выберите, какую услугу добавить</option>
                                     <option value="1">Траншея</option>
                                     <option value="2">Яма</option>
+                                    <option value="3">Планировка</option>
+                                    <option value="4">Террасирование</option>
+                                    <option value="5">Гидромолот</option>
+                                    <option value="6">Гидробур</option>
+                                    <option value="7">Котлован</option>
                                 </select>
                             </div>
 
@@ -114,6 +119,11 @@
         });
         $("#hiden2").bind('keyup mouseup', function () {
             $("#hiden3").css("display", "block");
+        });
+        $('#comselect').on('change', function() {
+            if (this.value == "2"){
+                $(location).attr('href',"/individual");
+            }
         });
         $('#hiden3').on('change', function() {
             $("#hiden4").css("display", "block");
