@@ -227,6 +227,24 @@ class CalcController extends Controller
         }
     }
 
+    public function Hydrohammer(Request $request)
+    {
+        $data = [
+            'item-type' => 'hydrodrill',
+        ];
+        session()->push('session-data', $data);
+
+        $redirpage = $request['redirpage'];
+        if($redirpage > 0)
+        {
+            return $this->RedirectToNextForm($redirpage);
+        }
+        else
+        {
+            return $this->SummaryAllForms();
+        }
+    }
+
     public function FoundationPit(Request $request)
     {
         $valid = $request->validate([
@@ -303,38 +321,44 @@ class CalcController extends Controller
     public function SummaryAllForms()
     {
         $price = [
-            'main' => 10,
-            'hour' => 50,
+            'main' => 0,
+            'hour' => 0,
             'error' => 0
         ];
 
         foreach (session('session-data') as $item)
         {
-            if($item['pass-width'] >= 150 & $item['pass-height'] >= 250)
+            if($item['pass-width'] >= 150 & $item['pass-height'] >= 250) //с кабиной
             {
-               switch ($item)
+               switch ($item['item-type'])
                {
                    case 'trench':
                        break;
                    case 'pit':
                        break;
                    case 'planning':
+                       $price = $this->PlanningSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], true);
                        break;
                    case 'terracing':
                        break;
                    case 'hydrodrill':
                        break;
+                   case 'hydrohammer':
+                       break;
                    case 'foundationPit':
                        break;
                }
             }
-            else if($item['pass-width'] >= 160 & $item['pass-height'] >= 200)
+            else if($item['pass-width'] >= 160 & $item['pass-height'] >= 200) //без кабины
             {
                 switch ($item['item-type'])
                 {
                     case 'pit':
                     case 'trench':
                         $price['main'] += 1000;
+                        break;
+                    case 'planning':
+                        $price = $this->PlanningSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], false);
                         break;
                 }
             }
@@ -345,6 +369,9 @@ class CalcController extends Controller
                 break;
             }
         }
+
+        session()->forget('session-data');
+        session()->put('session-data', array());
         $data = ['price' => $price];
         return view('price', $data);
     }
@@ -509,36 +536,20 @@ class CalcController extends Controller
         return view('price', $data);
     }
 
-    public function PlanningSummary(Request $request)
+    public function PlanningSummary($price, $x, $z, $y, $cabina)
     {
-
-        $price = 0;
-        $cubes = ($request['area-max-length'] /2) * $request['area-lenght'] * $request['area-width'];
+        $cubes = ($z /2) * $x * $y;
         $time = intval($cubes / 7);
-        if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
-        {
-            $price = $time * 1500;
-        }
-        else if($request['pass-width'] >= 160 && $request['pass-height'] >= 200)
-        {
-            $price = $time * 1700;
-        }
-        $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-        if($request['ground-type']>5)
-        {
-            $price = $price."₽ + 2500₽/час";
-        }
-        else
-        {
-            $price = $price."₽";
-        }
-        if($request['pass-width'] < 150 || $request['pass-height'] < 200 || $request['communications-search'] == 2)
-        {
-            $price = 'Индивидуальный звонок';
-        }
 
-        $data = ['price' => $price];
-        return view('price', $data);
+        if($cabina)
+        {
+            $price['main'] += 1500*$time;
+        }
+        else if(!$cabina)
+        {
+            $price['main'] += 1700*$time;
+        }
+        return $price;
     }
 
     public function TerracingSummary(Request $request)

@@ -17,7 +17,7 @@
     <button id="addbut2" type="button" class="btn btn-lg btn-block btn-primary m-3">Добавить услугу</button>
 
     <div id="hiden10" style="display: none">
-        <form id="mainform" name="foundation_pit-form"  method="post" action="/foundation_pit">
+        <form id="mainform" name="hydrohammer-form"  method="post" action="/hydrohammer">
             @csrf
             <div class="container">
                 <div class="card-deck mb-3 text-center">
