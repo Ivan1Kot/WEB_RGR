@@ -6,6 +6,23 @@ use Illuminate\Http\Request;
 
 class CalcController extends Controller
 {
+    public function RedirectToNextForm(int $redirpage)
+    {
+
+    }
+
+    public function SummaryAllForms()
+    {
+        $price = [
+            'main' => 0,
+            'hour' => 0
+        ];
+
+        foreach (session('session-data') as $item) {
+            dd($item);
+        }
+    }
+
     public function Trench(Request $request)
     {
         $valid = $request->validate([
@@ -17,8 +34,39 @@ class CalcController extends Controller
             'trench-depth' => 'required',
             'trench-width' => 'required',
             'delivery' => 'required',
+            'redirpage' => 'required'
         ]);
 
+        if($request['delivery'] > 1)
+        {
+            $valid = $request->validate([
+                'distance' => 'required'
+            ]);
+        }
+
+        $data = [
+            'ground-type' => $request['ground-type'],
+            'pass-width' => $request['pass-width'],
+            'pass-height' => $request['pass-height'],
+            'communications-search' => $request['communications-search'],
+            'trench-lenght' => $request['trench-lenght'],
+            'trench-depth' => $request['trench-depth'],
+            'trench-width' => $request['trench-width'],
+            'delivery' => $request['delivery'],
+            'distance' => $request['distance'] = null ? 0 : $request['distance']
+        ];
+        session()->push('session-data', $data);
+
+        $redirpage = $request['redirpage'];
+        if($redirpage > 0)
+        {
+            RedirectToNextForm($redirpage);
+        }
+        SummaryAllForms();
+    }
+
+    public function TrenchSummary(Request $request)
+    {
         $price = 0;
         if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
         {
@@ -93,6 +141,28 @@ class CalcController extends Controller
         $data = ['price' => $price];
         return view('price', $data);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function Pit(Request $request)
     {
