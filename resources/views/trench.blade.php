@@ -15,7 +15,7 @@
         </div>
     @endif
 
-        <form name="trench-form" method="post" action="/trench">
+        <form id="mainform" name="trench-form" method="post" action="/trench">
             @csrf
             <div class="container">
                 <div class="card-deck mb-3 text-center">
@@ -82,12 +82,24 @@
                                     <input type="number" name="distance" class="form-control" placeholder="Введите расстояние (Если вы не в Симферополе) (км)">
                                 </div>
 
-                                <button type="submit" href="/main" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                                <button type="submit" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                                <button id="addbut1" type="button" class="btn btn-lg btn-block btn-primary m-3">Добавить услугу</button>
                             </div>
 
                             <div id="hiden9" style="display: none">
-                            <button type="submit" href="/main" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                            <button type="submit" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                                <button id="addbut2" type="button" class="btn btn-lg btn-block btn-primary m-3">Добавить услугу</button>
                             </div>
+
+                            <div id="hiden10" style="display: none">
+                                <p class="text-dark">Какую услугу добавить к этой?</p>
+                                <select id="addselect" class="form-select" name="communications-search" aria-label="Default select example">
+                                    <option selected>Выберите, какую услугу добавить</option>
+                                    <option value="1">Траншея</option>
+                                    <option value="2">Яма</option>
+                                </select>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -124,6 +136,19 @@
                 $("#hiden8").css("display", "none");
                 $("#hiden9").css("display", "block");
             }
+        });
+        $("#addbut1").click('keyup mouseup', function () {
+            $("#hiden10").css("display", "block");
+        });
+        $("#addbut2").click('keyup mouseup', function () {
+            $("#hiden10").css("display", "block");
+        });
+        $("#addselect").on('change', function () {
+           var input = $("<input>")
+               .attr("type", "hidden")
+               .attr("name", "redirpage").val(this.value);
+           $('#mainform').append(input);
+           $('form#mainform').submit();
         });
     </script>
 @endsection

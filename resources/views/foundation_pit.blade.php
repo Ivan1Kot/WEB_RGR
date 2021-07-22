@@ -80,11 +80,11 @@
                                     <input type="number" name="distance" class="form-control" placeholder="Введите расстояние (Если вы не в Симферополе) (км)">
                                 </div>
 
-                                <button type="submit" href="/main" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                                <button type="submit" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
                             </div>
 
                             <div id="hiden9" style="display: none">
-                                <button type="submit" href="/main" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                                <button type="submit" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
                             </div>
                         </div>
                     </div>
