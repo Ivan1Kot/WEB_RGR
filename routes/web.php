@@ -64,6 +64,7 @@ Route::get('/foundation_pit', function () {
     return view('foundation_pit');
 })->name('foundation_pit');
 
+Route::post('/hydrohammer', [CalcController::class,'Hydrohammer']);
 Route::get('/hydrohammer', function () {
     return view('hydrohammer');
 })->name('hydrohammer');
