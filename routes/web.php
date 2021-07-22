@@ -95,3 +95,7 @@ Route::post('/reviews_editor/{id}', [ReviewsController::class,'EditReviewResult'
 Route::post('/moders_editor', [DBController::class,'CreateModerator']);
 Route::get('/moders_editor', [DBController::class,'ModeratorEditor'])->name('moders_editor');
 Route::get('/moders_editor/{nickname}/delete', [DBController::class,'DeleteModerator']);
+
+Route::get('/individual', function () {
+    return view('individual');
+});
