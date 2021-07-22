@@ -42,7 +42,7 @@
 
                             <div id="hiden3" style="display: none">
                                 <p class="text-dark">Нужен поиск коммуникаций? (Поиск коммуникаций нужен для того, чтоб в процессе работы эвакуатор не задел никаких коммуникаций)</p>
-                                <select class="form-select" name="communications-search" aria-label="Default select example">
+                                <select id="comselect" class="form-select" name="communications-search" aria-label="Default select example">
                                     <option selected>Выберите, нужен ли поиск коммуникаций</option>
                                     <option value="1">Нет</option>
                                     <option value="2">Да</option>
@@ -116,6 +116,11 @@
         });
         $("#hiden2").bind('keyup mouseup', function () {
             $("#hiden3").css("display", "block");
+        });
+        $('#comselect').on('change', function() {
+            if (this.value == "2"){
+                $(location).attr('href',"/individual");
+            }
         });
         $('#hiden3').on('change', function() {
             $("#hiden4").css("display", "block");

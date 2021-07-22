@@ -13,7 +13,7 @@
             </ul>
         </div>
     @endif
-        <form name="terracing-form"  method="post" action="/terracing">
+        <form id="mainform" name="terracing-form"  method="post" action="/terracing">
             @csrf
             <div class="container">
                 <div class="card-deck mb-3 text-center">
@@ -42,7 +42,7 @@
 
                             <div id="hiden3" style="display: none">
                                 <p class="text-dark">Нужен поиск коммуникаций? (Поиск коммуникаций нужен для того, чтоб в процессе работы эвакуатор не задел никаких коммуникаций)</p>
-                                <select class="form-select" name="communications-search" aria-label="Default select example">
+                                <select id="comselect" class="form-select" name="communications-search" aria-label="Default select example">
                                     <option selected>Выберите, нужен ли поиск коммуникаций</option>
                                     <option value="1">Нет</option>
                                     <option value="2">Да</option>
@@ -80,11 +80,27 @@
                                     <input type="number" name="distance" class="form-control" placeholder="Введите расстояние (Если вы не в Симферополе) (км)">
                                 </div>
 
-                                <button type="submit" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                                <button id="finalbut1" type="button" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                                <button id="addbut1" type="button" class="btn btn-lg btn-block btn-primary m-3">Добавить услугу</button>
                             </div>
 
                             <div id="hiden9" style="display: none">
-                                <button type="submit" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                                <button id="finalbut2" type="button" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
+                                <button id="addbut2" type="button" class="btn btn-lg btn-block btn-primary m-3">Добавить услугу</button>
+                            </div>
+
+                            <div id="hiden10" style="display: none">
+                                <p class="text-dark">Какую услугу добавить к этой?</p>
+                                <select id="addselect" class="form-select" name="adding" aria-label="Default select example">
+                                    <option selected>Выберите, какую услугу добавить</option>
+                                    <option value="1">Траншея</option>
+                                    <option value="2">Яма</option>
+                                    <option value="3">Планировка</option>
+                                    <option value="4">Террасирование</option>
+                                    <option value="5">Гидромолот</option>
+                                    <option value="6">Гидробур</option>
+                                    <option value="7">Котлован</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -100,6 +116,11 @@
         });
         $("#hiden2").bind('keyup mouseup', function () {
             $("#hiden3").css("display", "block");
+        });
+        $('#comselect').on('change', function() {
+            if (this.value == "2"){
+                $(location).attr('href',"/individual");
+            }
         });
         $('#hiden3').on('change', function() {
             $("#hiden4").css("display", "block");
@@ -122,6 +143,33 @@
                 $("#hiden8").css("display", "none");
                 $("#hiden9").css("display", "block");
             }
+        });
+        $("#addbut1").click('keyup mouseup', function () {
+            $("#hiden10").css("display", "block");
+        });
+        $("#addbut2").click('keyup mouseup', function () {
+            $("#hiden10").css("display", "block");
+        });
+        $("#addselect").on('change', function () {
+            var input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "redirpage").val(this.value);
+            $('#mainform').append(input);
+            $('form#mainform').submit();
+        });
+        $("#finalbut1").click('keyup mouseup', function () {
+            var input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "redirpage").val(0);
+            $('#mainform').append(input);
+            $('form#mainform').submit();
+        });
+        $("#finalbut2").click('keyup mouseup', function () {
+            var input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "redirpage").val(0);
+            $('#mainform').append(input);
+            $('form#mainform').submit();
         });
     </script>
 @endsection
