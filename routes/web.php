@@ -26,7 +26,9 @@ Route::get('/choise', function () {
 })->name('choise');
 
 Route::get('/clean', function () {
-    return view('clean');
+    session()->forget('session-data');
+    session()->push('session-data', []);
+    return redirect()->route('main');
 })->name('Clean');
 
 Route::post('/reviews', [ReviewsController::class,'AddReview']);
