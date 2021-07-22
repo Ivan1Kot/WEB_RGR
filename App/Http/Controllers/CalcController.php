@@ -6,24 +6,7 @@ use Illuminate\Http\Request;
 
 class CalcController extends Controller
 {
-    public function RedirectToNextForm(int $redirpage)
-    {
-
-    }
-
-    public function SummaryAllForms()
-    {
-        $price = [
-            'main' => 0,
-            'hour' => 0
-        ];
-
-        foreach (session('session-data') as $item) {
-            dd($item);
-        }
-    }
-
-    public function Trench(Request $request)
+        public function Trench(Request $request)
     {
         $valid = $request->validate([
             'ground-type' => 'required|min:1',
@@ -60,10 +43,37 @@ class CalcController extends Controller
         $redirpage = $request['redirpage'];
         if($redirpage > 0)
         {
-            RedirectToNextForm($redirpage);
+            CalcController::RedirectToNextForm($redirpage);
         }
-        SummaryAllForms();
+        CalcController::SummaryAllForms();
     }
+
+    public function RedirectToNextForm(int $redirpage)
+    {
+        switch ($redirpage){
+            case 1:
+                redirect()->route('trench');
+                break;
+            case 2:
+                redirect()->route('pit');
+                break;
+        }
+    }
+
+    public function SummaryAllForms()
+    {
+        $price = [
+            'main' => 0,
+            'hour' => 0
+        ];
+
+        foreach (session('session-data') as $item) {
+        }
+
+        $data = ['price' => $price];
+        return view('price', $data);
+    }
+
 
     public function TrenchSummary(Request $request)
     {

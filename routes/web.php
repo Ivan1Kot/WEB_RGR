@@ -31,12 +31,12 @@ Route::get('/reviews', [ReviewsController::class,'Reviews'])->name('reviews');
 Route::post('/trench', [CalcController::class,'Trench']);
 Route::get('/trench', function () {
     return view('trench');
-});
+})->name('trench');
 
 Route::post('/pit', [CalcController::class,'Pit']);
 Route::get('/pit', function () {
     return view('pit');
-});
+})->name('pit');
 
 Route::post('/planning', [CalcController::class,'Planning']);
 Route::get('/planning', function () {
