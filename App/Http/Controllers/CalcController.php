@@ -204,7 +204,7 @@ class CalcController extends Controller
         }
 
         $data = [
-            'item-type' => 'terracing',
+            'item-type' => 'hydrodrill',
             'ground-type' => $request['ground-type'],
             'pass-width' => $request['pass-width'],
             'pass-height' => $request['pass-height'],
@@ -247,7 +247,7 @@ class CalcController extends Controller
         }
 
         $data = [
-            'item-type' => 'terracing',
+            'item-type' => 'foundationPit',
             'ground-type' => $request['ground-type'],
             'pass-width' => $request['pass-width'],
             'pass-height' => $request['pass-height'],
@@ -318,15 +318,13 @@ class CalcController extends Controller
                        break;
                    case 'pit':
                        break;
-                   case 'trench':
+                   case 'planning':
                        break;
-                   case 'trench':
+                   case 'terracing':
                        break;
-                   case 'trench':
+                   case 'hydrodrill':
                        break;
-                   case 'trench':
-                       break;
-                   case 'trench':
+                   case 'foundationPit':
                        break;
                }
             }
