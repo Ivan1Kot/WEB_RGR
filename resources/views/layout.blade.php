@@ -43,6 +43,9 @@
                     @if(session('isUser') == 1)
                         <a class="btn btn-light ms-2" href="/logout">Хорошая работа, {{session('username')}}</a>
                     @endif
+                    @if(count(session('session-data')) > 0)
+                        <a class="btn btn-light ms-2" href="/clean">Выбрано услуг, {{count(session('session-data'))}}</a>
+                    @endif
                 </nav>
             </div>
         </header>
