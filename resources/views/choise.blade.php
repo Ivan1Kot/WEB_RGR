@@ -14,7 +14,7 @@
                     <div>
                         <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
-                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <a type="button" href="/trench" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
                 <div class="card m-4 box-shadow">
                     <div class="card-header">
@@ -32,7 +32,7 @@
                     <div >
                         <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
-                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <a type="button" href="/planning" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
             </nav>
         </div>
@@ -45,7 +45,7 @@
                     <div >
                         <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
-                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <a type="button" href="/terracing" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
                 <div class="card m-3 box-shadow">
                     <div class="card-header">
@@ -54,7 +54,7 @@
                     <div >
                         <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
-                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <a type="button" href="/hydrohammer" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
                 <div class="card m-3 box-shadow">
                     <div class="card-header">
@@ -63,7 +63,7 @@
                     <div >
                         <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
-                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <a type="button" href="/hydrodrill" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
                 <div class="card m-3 box-shadow">
                     <div class="card-header">
@@ -72,7 +72,7 @@
                     <div >
                         <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
-                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <a type="button" href="/foundation_pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
             </nav>
         </div>
