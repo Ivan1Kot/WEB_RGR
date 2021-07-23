@@ -11,25 +11,28 @@
                     <div class="card-header">
                         <h4 class="my-0 font-weight-normal text-dark">Траншея</h4>
                     </div>
-                    <div class="card-body">
-                        <a type="button" href="/trench" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <div>
+                        <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
+                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
                 <div class="card m-4 box-shadow">
                     <div class="card-header">
                         <h4 class="my-0 font-weight-normal text-dark">Яма</h4>
                     </div>
-                    <div class="card-body">
-                        <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <div >
+                        <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
+                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
                 <div class="card m-4 box-shadow">
                     <div class="card-header">
                         <h4 class="my-0 font-weight-normal text-dark">Планировка</h4>
                     </div>
-                    <div class="card-body">
-                        <a type="button" href="/planning" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <div >
+                        <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
+                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
             </nav>
         </div>
@@ -37,35 +40,39 @@
             <nav class="nav">
                 <div class="card m-3 box-shadow">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal text-dark">Террасирование</h4>
+                        <p class="my-0 font-weight-normal text-dark" style="font-size: 120%; font-weight: 600">Террасирование</p>
                     </div>
-                    <div class="card-body">
-                        <a type="button" href="/terracing" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <div >
+                        <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
+                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
                 <div class="card m-3 box-shadow">
                     <div class="card-header">
                         <h4 class="my-0 font-weight-normal text-dark">Гидромолот</h4>
                     </div>
-                    <div class="card-body">
-                        <a type="button" href="/hydrohammer" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <div >
+                        <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
+                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
                 <div class="card m-3 box-shadow">
                     <div class="card-header">
                         <h4 class="my-0 font-weight-normal text-dark">Гидробур</h4>
                     </div>
-                    <div class="card-body">
-                        <a type="button" href="/hydrodrill" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <div >
+                        <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
+                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
                 <div class="card m-3 box-shadow">
                     <div class="card-header">
                         <h4 class="my-0 font-weight-normal text-dark">Котлован</h4>
                     </div>
-                    <div class="card-body">
-                        <a type="button" href="/foundation_pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
+                    <div >
+                        <img src="images/Hnet-image.gif" style="width: 185px">
                     </div>
+                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
             </nav>
         </div>
