@@ -28,7 +28,7 @@
                         <h4 class="my-0 font-weight-normal ">Планировка</h4>
                     </div>
                     <div >
-                        <a href="/planning"><img src="images/pit_animation.gif" style="width: 250px"></a>
+                        <a href="/planning"><img src="images/planning_animation.gif" style="width: 250px"></a>
                     </div>
                 </div>
             </nav>
