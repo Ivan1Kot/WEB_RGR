@@ -12,7 +12,7 @@
                         <h4 class="my-0 font-weight-normal text-dark">Траншея</h4>
                     </div>
                     <div>
-                        <img src="images/trench-animation.gif" style="width: 185px">
+                        <img src="images/trench_animation.gif" style="width: 185px">
                     </div>
                     <a type="button" href="/trench" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
@@ -21,7 +21,7 @@
                         <h4 class="my-0 font-weight-normal text-dark">Яма</h4>
                     </div>
                     <div >
-                        <img src="images/pit-animation.gif" style="width: 185px">
+                        <img src="images/pit_animation.gif" style="width: 185px">
                     </div>
                     <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
@@ -30,7 +30,7 @@
                         <h4 class="my-0 font-weight-normal text-dark">Планировка</h4>
                     </div>
                     <div >
-                        <img src="images/pit-animation.gif" style="width: 185px">
+                        <img src="images/pit_animation.gif" style="width: 185px">
                     </div>
                     <a type="button" href="/planning" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
@@ -43,7 +43,7 @@
                         <p class="my-0 font-weight-normal text-dark" style="font-size: 120%; font-weight: 600">Террасирование</p>
                     </div>
                     <div >
-                        <img src="images/pit-animation.gif" style="width: 185px">
+                        <img src="images/pit_animation.gif" style="width: 185px">
                     </div>
                     <a type="button" href="/terracing" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
@@ -52,7 +52,7 @@
                         <h4 class="my-0 font-weight-normal text-dark">Гидромолот</h4>
                     </div>
                     <div >
-                        <img src="images/pit-animation.gif" style="width: 185px">
+                        <img src="images/pit_animation.gif" style="width: 185px">
                     </div>
                     <a type="button" href="/hydrohammer" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
@@ -61,7 +61,7 @@
                         <h4 class="my-0 font-weight-normal text-dark">Гидробур</h4>
                     </div>
                     <div >
-                        <img src="images/pit-animation.gif" style="width: 185px">
+                        <img src="images/pit_animation.gif" style="width: 185px">
                     </div>
                     <a type="button" href="/hydrodrill" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
@@ -70,7 +70,7 @@
                         <h4 class="my-0 font-weight-normal text-dark">Котлован</h4>
                     </div>
                     <div >
-                        <img src="images/pit-animation.gif" style="width: 185px">
+                        <img src="images/pit_animation.gif" style="width: 185px">
                     </div>
                     <a type="button" href="/foundation_pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
