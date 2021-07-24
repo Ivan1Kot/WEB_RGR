@@ -5,76 +5,73 @@
 @section("page-content")
     <h1 class="m-5">Выбери земельную работу</h1>
     <div class="container">
-        <div class="container" style="padding-left: 13%">
+        <div class="container">
             <nav class="nav">
-                <div class="masthead-brand card m-4 box-shadow">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal text-dark">Траншея</h4>
+                <div class="masthead-brand card m-4 box-shadow bg-dark">
+                    <div class="card-header bg-dark">
+                        <h4 class="my-0 font-weight-normal">Траншея</h4>
                     </div>
                     <div>
-                        <img src="images/trench_animation.gif" style="width: 185px">
+                        <a href="/trench"><img src="images/trench_animation.gif" style="width: 250px"></a>
                     </div>
-                    <a type="button" href="/trench" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
-                <div class="card m-4 box-shadow">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal text-dark">Яма</h4>
+                <div class="card m-4 box-shadow bg-dark">
+                    <div class="card-header bg-dark">
+                        <h4 class="my-0 font-weight-normal ">Яма</h4>
                     </div>
                     <div >
-                        <img src="images/pit_animation.gif" style="width: 185px">
+                        <a href="/pit"><img src="images/pit_animation.gif" style="width: 250px"></a>
                     </div>
-                    <a type="button" href="/pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
-                <div class="card m-4 box-shadow">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal text-dark">Планировка</h4>
+                <div class="card m-4 box-shadow bg-dark">
+                    <div class="card-header bg-dark">
+                        <h4 class="my-0 font-weight-normal ">Планировка</h4>
                     </div>
                     <div >
-                        <img src="images/pit_animation.gif" style="width: 185px">
+                        <a href="/planning"><img src="images/pit_animation.gif" style="width: 250px"></a>
                     </div>
-                    <a type="button" href="/planning" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
             </nav>
         </div>
         <div class="container">
             <nav class="nav">
-                <div class="card m-3 box-shadow">
-                    <div class="card-header">
-                        <p class="my-0 font-weight-normal text-dark" style="font-size: 120%; font-weight: 600">Террасирование</p>
+                <div class="card m-4 box-shadow bg-dark">
+                    <div class="card-header bg-dark">
+                        <h4 class="my-0 font-weight-normal ">Террасирование</h4>
                     </div>
                     <div >
-                        <img src="images/pit_animation.gif" style="width: 185px">
+                        <a href="/terracing"><img src="images/pit_animation.gif" style="width: 250px"></a>
                     </div>
-                    <a type="button" href="/terracing" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
-                <div class="card m-3 box-shadow">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal text-dark">Гидромолот</h4>
+                <div class="card m-4 box-shadow bg-dark">
+                    <div class="card-header bg-dark">
+                        <h4 class="my-0 font-weight-normal ">Гидромолот</h4>
                     </div>
                     <div >
-                        <img src="images/pit_animation.gif" style="width: 185px">
+                        <a href="/hydrohammer"><img src="images/pit_animation.gif" style="width: 250px"></a>
                     </div>
-                    <a type="button" href="/hydrohammer" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
-                <div class="card m-3 box-shadow">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal text-dark">Гидробур</h4>
+                <div class="card m-4 box-shadow bg-dark">
+                    <div class="card-header bg-dark">
+                        <h4 class="my-0 font-weight-normal ">Гидробур</h4>
                     </div>
                     <div >
-                        <img src="images/pit_animation.gif" style="width: 185px">
+                        <a href="/hydrodrill"><img src="images/pit_animation.gif" style="width: 250px"></a>
                     </div>
-                    <a type="button" href="/hydrodrill" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
                 </div>
-                <div class="card m-3 box-shadow">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal text-dark">Котлован</h4>
-                    </div>
-                    <div >
-                        <img src="images/pit_animation.gif" style="width: 185px">
-                    </div>
-                    <a type="button" href="/foundation_pit" class="btn btn-lg btn-block btn-primary">Рассчитать</a>
-                </div>
-            </nav>
-        </div>
-    </div>
+              </nav>
+            </div>
+                <div class="container" style="padding-left: 33.5%">
+                    <nav class="nav">
+                      <div class="card m-4 box-shadow bg-dark">
+                          <div class="card-header bg-dark">
+                              <h4 class="my-0 font-weight-normal ">Котлован</h4>
+                          </div>
+                          <div >
+                              <a href="/foundation_pit"><img src="images/pit_animation.gif" style="width: 250px"></a>
+                          </div>
+                      </div>
+                  </nav>
+              </div>
+            </div>
 @endsection
