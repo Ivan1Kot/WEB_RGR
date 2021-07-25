@@ -48,7 +48,7 @@
                         <h4 class="my-0 font-weight-normal ">Гидромолот</h4>
                     </div>
                     <div >
-                        <a href="/hydrohammer"><img src="images/pit_animation.gif" style="width: 250px"></a>
+                        <a href="/hydrohammer"><img src="images/hydrohammer_animation.gif" style="width: 250px"></a>
                     </div>
                 </div>
                 <div class="card m-4 box-shadow bg-dark">
