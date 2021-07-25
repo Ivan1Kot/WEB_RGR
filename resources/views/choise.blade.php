@@ -40,7 +40,7 @@
                         <h4 class="my-0 font-weight-normal ">Террасирование</h4>
                     </div>
                     <div >
-                        <a href="/terracing"><img src="images/pit_animation.gif" style="width: 250px"></a>
+                        <a href="/terracing"><img src="images/terracing_animation.gif" style="width: 250px"></a>
                     </div>
                 </div>
                 <div class="card m-4 box-shadow bg-dark">
