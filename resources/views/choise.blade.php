@@ -56,7 +56,7 @@
                         <h4 class="my-0 font-weight-normal ">Гидробур</h4>
                     </div>
                     <div >
-                        <a href="/hydrodrill"><img src="images/pit_animation.gif" style="width: 250px"></a>
+                        <a href="/hydrodrill"><img src="images/hydrodrill_animation.gif" style="width: 250px"></a>
                     </div>
                 </div>
               </nav>
