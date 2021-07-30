@@ -68,7 +68,7 @@
                               <h4 class="my-0 font-weight-normal ">Котлован</h4>
                           </div>
                           <div >
-                              <a href="/foundation_pit"><img src="images/pit_animation.gif" style="width: 250px"></a>
+                              <a href="/foundation_pit"><img src="images/foundation_pit_animation.gif" style="width: 250px"></a>
                           </div>
                       </div>
                   </nav>
