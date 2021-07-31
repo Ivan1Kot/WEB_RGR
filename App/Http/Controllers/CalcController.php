@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\Boolean;
 
 class CalcController extends Controller
 {
@@ -318,6 +319,33 @@ class CalcController extends Controller
         }
     }
 
+    public function CheckPitOrTrench($items, $type)
+    {
+        $pit = false;
+        $trench = false;
+        foreach ($items as $item)
+        {
+            switch ($item['item-type'])
+            {
+                case 'trench':
+                    $trench = true;
+                        break;
+                case 'pit':
+                    $pit = true;
+                    break;
+            }
+        }
+        if($type == 'pit')
+        {
+            return $pit;
+        }
+        else if($type == 'trench')
+        {
+            return $trench;
+        }
+        return false;
+    }
+
     public function SummaryAllForms()
     {
         $price = [
@@ -333,19 +361,35 @@ class CalcController extends Controller
                switch ($item['item-type'])
                {
                    case 'trench':
+                       if($this->CheckPitOrTrench(session('session-data'), 'pit'))
+                       {
+                           $price = $this->TrenchWithPitSummary($price, $item['ground-type'], $item['trench-width'], $item['trench-depth'], $item['trench-lenght'], true);
+                       }
+                       else
+                       {
+                           $price = $this->TrenchWithoutPitSummary($price, $item['ground-type'], $item['trench-width'], $item['trench-depth'], $item['trench-lenght'], true);
+                       }
                        break;
                    case 'pit':
+                       if(!$this->CheckPitOrTrench(session('session-data'), 'trench'))
+                       {
+                           $price = $this->PitWithoutTrenchSummary($price, $item['pit-lenght'], $item['pit-width'], $item['pit-depth'], $item['ground-type']);
+                       }
                        break;
                    case 'planning':
                        $price = $this->PlanningSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], true);
                        break;
                    case 'terracing':
+                       $price = $this->TerracingSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], true);
                        break;
                    case 'hydrodrill':
+                       $price = $this->HydrodrillSummary($price, $item['hole-depth'], $item['trench-width']);
                        break;
                    case 'hydrohammer':
+                       $price = $this->HydrohammerSummary($price);
                        break;
                    case 'foundationPit':
+                       $price = $this->FoundationPitSummary($price, $item['area-lenght'], $item['area-width'], $item['foundation-depth'], true);
                        break;
                }
             }
@@ -353,12 +397,36 @@ class CalcController extends Controller
             {
                 switch ($item['item-type'])
                 {
-                    case 'pit':
                     case 'trench':
-                        $price['main'] += 1000;
+                        if($this->CheckPitOrTrench(session('session-data'), 'pit'))
+                        {
+                            $price = $this->TrenchWithPitSummary($price, $item['ground-type'], $item['trench-width'], $item['trench-depth'], $item['trench-lenght'], false);
+                        }
+                        else
+                        {
+                            $price = $this->TrenchWithoutPitSummary($price, $item['ground-type'], $item['trench-width'], $item['trench-depth'], $item['trench-lenght'], false);
+                        }
+                        break;
+                    case 'pit':
+                        if(!$this->CheckPitOrTrench(session('session-data'), 'trench'))
+                        {
+                            $price = $this->PitWithoutTrenchSummary($price, $item['pit-lenght'], $item['pit-width'], $item['pit-depth'], $item['ground-type']);
+                        }
                         break;
                     case 'planning':
                         $price = $this->PlanningSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], false);
+                        break;
+                    case 'terracing':
+                        $price = $this->TerracingSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], false);
+                        break;
+                    case 'hydrodrill':
+                        $price = $this->HydrodrillSummary($price, $item['hole-depth'], $item['trench-width']);
+                        break;
+                    case 'hydrohammer':
+                        $price = $this->HydrohammerSummary($price);
+                        break;
+                    case 'foundationPit':
+                        $price = $this->FoundationPitSummary($price, $item['area-lenght'], $item['area-width'], $item['foundation-depth'], false);
                         break;
                 }
             }
@@ -368,6 +436,7 @@ class CalcController extends Controller
                 $price['errormessage'] = 'Индивидуальный звонок';
                 break;
             }
+            $price = $this->GetPriceLocation($price, $item['delivery'], $item['distance']);
         }
 
         session()->forget('session-data');
@@ -376,164 +445,154 @@ class CalcController extends Controller
         return view('price', $data);
     }
 
-
-    public function TrenchSummary(Request $request)
+    public function TrenchWithoutPitSummary($price, $ground, $width, $depth, $length, $cabina)
     {
-        $price = 0;
-        if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
+        if($cabina)
         {
-            if($request['trench-lenght'] <= 30)
+            if($length <= 30)
             {
-                $price = 4500;
+                $price['main'] += 4500;
             }
-            else{
-                if($request['trench-depth'] <= 120)
-                {
-                    if($request['trench-width'] <= 45)
-                    {
-                        $price = 150*$request['trench-lenght'];
-                    }
-                    else{
-                        $price = 200*$request['trench-lenght'];
-                    }
-                }
-                else{
-                    if($request['trench-width'] <= 45)
-                    {
-                        $price = (150+($request['trench-depth']-120))*$request['trench-lenght'];
-                    }
-                    else{
-                        $price = (200+($request['trench-depth']-120))*$request['trench-lenght'];
-                    }
-                }
-            }
-        }
-        else if($request['pass-width'] >= 160 && $request['pass-height'] >= 200)
-        {
-            if($request['trench-lenght'] <= 30)
+            else
             {
-                $price = 5000;
-            }
-            else{
-                if($request['trench-depth'] <= 120)
+                if($depth <= 120)
                 {
-                    if($request['trench-width'] <= 45)
+                    if($width < 50)
                     {
-                        $price = 160*$request['trench-lenght'];
+                        $price['main'] += 150*$length;
                     }
-                    else{
-                        $price = 210*$request['trench-lenght'];
-                    }
-                }
-                else{
-                    if($request['trench-width'] <= 45)
+                    else
                     {
-                        $price = (160+($request['trench-depth']-120))*$request['trench-lenght'];
+                        $price['main'] += 200*$length;
                     }
-                    else{
-                        $price = (210+($request['trench-depth']-120))*$request['trench-lenght'];
-                    }
-                }
-            }
-        }
-        $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-        if($request['ground-type']>1)
-        {
-            $price = $price."₽ + 2500₽/час";
-        }
-        else
-        {
-            $price = $price."₽";
-        }
-        if($request['pass-width'] < 150 || $request['pass-height'] < 200 || $request['communications-search'] == 2)
-        {
-            $price = 'Индивидуальный звонок';
-        }
-
-        $data = ['price' => $price];
-        return view('price', $data);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function PitSummary(Request $request)
-    {
-        $valid = $request->validate([
-            'ground-type' => 'required|min:1',
-            'pass-width' => 'required',
-            'pass-height' => 'required',
-            'communications-search' => 'required',
-            'pit-lenght' => 'required',
-            'pit-depth' => 'required',
-            'pit-width' => 'required',
-            'delivery' => 'required',
-        ]);
-
-        $price = 0;
-        if($request['pit-lenght'] <= 250 && $request['pit-depth'] <= 220 && $request['pit-lenghtpit-width'] <= 400)
-            if($request['ground-type'] == 1)
-                if($request['delivery'] == 1)
-                {
-                    $price = 9000;
-                    $data = ['price' => $price];
-                    return view('price', $data);
                 }
                 else
-                    $price = 7000;
-            else if($request['delivery'] == 1) {
-                $price = '2000₽ + 2500₽/час';
-                $data = ['price' => $price];
-                return view('price', $data);
-            }
-                else {
-                    $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-                    $price = $price."₽ + 2500₽/час";
-                    $data = ['price' => $price];
-                    return view('price', $data);
+                {
+                    if($width < 50)
+                    {
+                        $price['main'] += (150 + ($length - 120))*$length;
+                    }
+                    else
+                    {
+                        $price['main'] += (200 + ($length - 120))*$length;
+                    }
                 }
-        else
-        {
-            $price = 'Индивидуальный звонок';
-            $data = ['price' => $price];
-            return view('price', $data);
+            }
         }
+        else {
+            if ($length <= 30) {
+                $price['main'] += 5000;
+            } else {
+                if ($depth <= 120) {
+                    if ($width < 50) {
+                        $price['main'] += 160 * $length;
+                    } else {
+                        $price['main'] += 210 * $length;
+                    }
+                } else {
+                    if ($width < 50) {
+                        $price['main'] += (160 + ($length - 120)) * $length;
+                    } else {
+                        $price['main'] += (210 + ($length - 120)) * $length;
+                    }
+                }
+            }
+        }
+        if($ground > 1)
+        {
+            $price['hour'] += 2500;
+        }
+        return $price;
+    }
 
+    public function TrenchWithPitSummary($price, $ground, $width, $depth, $length, $cabina)
+    {
+        if($cabina)
+        {
+            if($length <= 30)
+            {
+                if($depth <= 120)
+                {
+                    $price['main'] += 2000 + 9000;
+                }
+                else
+                {
+                    $price['main'] += 200 * $length + 6000;
+                }
+            }
+            else
+            {
+                if($depth <= 120)
+                {
+                    if($width < 50)
+                    {
+                        $price['main'] += 150 * $length + 6000;
+                    }
+                    else
+                    {
+                        $price['main'] += 200 * $length + 6000;
+                    }
+                }
+                else
+                {
+                    if($width < 50)
+                    {
+                        $price['main'] += (150 + ($length - 120))*$length + 6000;
+                    }
+                    else
+                    {
+                        $price['main'] += (200 + ($length - 120))*$length + 6000;
+                    }
+                }
+            }
+        }
+        else {
+            if ($length <= 30) {
+                if($depth <= 120)
+                {
+                    $price['main'] += 2200;
+                }
+                else
+                {
+                    $price['main'] += 1200;
+                }
+            } else {
+                if ($depth <= 120) {
+                    if ($width < 50) {
+                        $price['main'] += 160 * $length + 7000;
+                    } else {
+                        $price['main'] += 210 * $length + 7000;
+                    }
+                } else {
+                    if ($width < 50) {
+                        $price['main'] += (160 + ($length - 120)) * $length + 7000;
+                    } else {
+                        $price['main'] += (210 + ($length - 120)) * $length + 7000;
+                    }
+                }
+            }
+        }
+        if($ground > 1)
+        {
+            $price['hour'] += 2500;
+        }
+        return $price;
+    }
 
-        $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-        if($request['ground-type']>1)
+    public function PitWithoutTrenchSummary($price, $length, $width, $depth, $ground)
+    {
+        if($length <= 250 & $depth <= 220 & $width <= 400)
         {
-            $price = $price."₽ + 2500₽/час";
+            if($ground <= 1)
+            {
+                $price['main'] += 7000;
+            }
+            else
+            {
+                $price['hour'] += 2500;
+            }
         }
-        else
-        {
-            $price = $price."₽";
-        }
-        if($request['pass-width'] < 150 || $request['pass-height'] < 200 || $request['communications-search'] == 2)
-        {
-            $price = 'Индивидуальный звонок';
-        }
-        $data = ['price' => $price];
-        return view('price', $data);
+        return $price;
     }
 
     public function PlanningSummary($price, $x, $z, $y, $cabina)
@@ -552,161 +611,85 @@ class CalcController extends Controller
         return $price;
     }
 
-    public function TerracingSummary(Request $request)
+    public function TerracingSummary($price, $x, $z, $y, $cabina)
     {
-        $valid = $request->validate([
-            'pass-width' => 'required',
-            'pass-height' => 'required',
-            'communications-search' => 'required',
-            'area-lenght' => 'required',
-            'area-max-length' => 'required',
-            'area-width' => 'required',
-            'delivery' => 'required',
-        ]);
-
-        $price = 0;
-        $cubes = ($request['area-max-length'] /2) * $request['area-lenght'] * $request['area-width'];
+        $cubes = ($z /2) * $x * $y;
         $time = intval($cubes / 7);
-        if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
-        {
-            $price = $time * 1500;
-        }
-        else if($request['pass-width'] >= 160 && $request['pass-height'] >= 200)
-        {
-            $price = $time * 1700;
-        }
-        $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-        if($request['ground-type']>5)
-        {
-            $price = $price."₽ + 2500₽/час";
-        }
-        else
-        {
-            $price = $price."₽";
-        }
-        if($request['pass-width'] < 150 || $request['pass-height'] < 200 || $request['communications-search'] == 2)
-        {
-            $price = 'Индивидуальный звонок';
-        }
 
-        $data = ['price' => $price];
-        return view('price', $data);
+        if($cabina)
+        {
+            $price['main'] += 1500*$time;
+        }
+        else if(!$cabina)
+        {
+            $price['main'] += 1700*$time;
+        }
+        return $price;
     }
 
-    public function HydrodrillSummary(Request $request)
+    public function HydrodrillSummary($price, $depth, $count)
     {
-        $valid = $request->validate([
-            'pass-width' => 'required',
-            'pass-height' => 'required',
-            'communications-search' => 'required',
-            'hole-depth' => 'required',
-            'trench-width' => 'required',
-            'delivery' => 'required',
-        ]);
-
-        $price = 0;
-        if($request['hole-depth'] <= 100)
+        if($depth <= 100)
         {
-            if($request['trench-width'] <= 12)
+            if($count <= 12)
             {
-                $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-                $price = $price.' + 2000₽/час';
-                $data = ['price' => $price];
-                return view('price', $data);
+                $price['hour'] += 2000;
             }
             else
             {
-                $price = 550 * $request['trench-width'];
+                $price['main'] += 550*$count;
             }
         }
-        else if ($request['hole-depth'] <= 200)
+        else
         {
-            if($request['trench-width'] <= 12)
+            if($count <= 12)
             {
-                $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-                $price = $price.' + 2000₽/час';
-                $data = ['price' => $price];
-                return view('price', $data);
+                $price['hour'] += 2000;
             }
             else
             {
-                $price = 600 * $request['trench-width'];
+                $price['main'] += 600*$count;
             }
         }
-        else if ($request['hole-depth'] > 200)
-        {
-            $price = 'Индивидуальный звонок';
-            $data = ['price' => $price];
-            return view('price', $data);
-        }
-        $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-        if($request['ground-type']>5)
-        {
-            $price = $price."₽ + 2500₽/час";
-        }
-        else
-        {
-            $price = $price."₽";
-        }
-        if($request['pass-width'] < 150 || $request['pass-height'] < 200 || $request['communications-search'] == 2)
-        {
-            $price = 'Индивидуальный звонок';
-        }
-
-        $data = ['price' => $price];
-        return view('price', $data);
+        return $price;
     }
 
-    public function FoundationPitSummary(Request $request)
+    public function HydrohammerSummary($price)
     {
-        $valid = $request->validate([
-            'pass-width' => 'required',
-            'pass-height' => 'required',
-            'communications-search' => 'required',
-            'area-lenght' => 'required',
-            'foundation-depth' => 'required',
-            'area-width' => 'required',
-            'delivery' => 'required',
-        ]);
-
-        $price = 0;
-        $cubes = 1.2 * $request['area-lenght'] * $request['area-width'] * $request['foundation-depth']/1000000;
-        $time = intval($cubes / 7000);
-        if($request['pass-width'] >= 150 && $request['pass-height'] >= 250)
-        {
-            $price = $time * 1500;
-        }
-        else if($request['pass-width'] >= 160 && $request['pass-height'] >= 200)
-        {
-            $price = $time * 1700;
-        }
-        $price += $this->GetPriceLocation($request['delivery'], $request['distance']);
-        if($request['ground-type']>5)
-        {
-            $price = $price."₽ + 2500₽/час";
-        }
-        else
-        {
-            $price = $price."₽";
-        }
-        if($request['pass-width'] < 150 || $request['pass-height'] < 200 || $request['communications-search'] > 1)
-        {
-            $price = 'Индивидуальный звонок';
-        }
-
-        $data = ['price' => $price];
-        return view('price', $data);
+        $price['hour'] += 2500;
+        return $price;
     }
 
-    function GetPriceLocation($location, $distance)
+    public function FoundationPitSummary($price, $x, $y, $z, $cabina)
     {
+        $cubes = 1.2 * ($x*$y*$z);
+        $time = intval($cubes / 7);
+        if($cabina)
+        {
+            $price['main'] += 1500*$time;
+        }
+        else if(!$cabina)
+        {
+            $price['main'] += 1700*$time;
+        }
+        return $price;
+    }
+
+    function GetPriceLocation($price, $location, $distance)
+    {
+        if ($distance == 0)
+            return $price;
         switch ($location){
             case 1:
-                return 2000;
+                $price['main'] += 2000;
+                return $price;
             case 2:
-                return $distance * 40 * 2;
+                $price['main'] += $distance * 40 * 2;
+                return $price;
             case 3:
-                return $distance * 40 * 2 + 3000;
+                $price['main'] += $distance * 40 * 2 + 3000;
+                return $price;
         }
+        return $price;
     }
 }
