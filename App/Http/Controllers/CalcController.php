@@ -232,6 +232,8 @@ class CalcController extends Controller
     {
         $data = [
             'item-type' => 'hydrodrill',
+            'delivery' => 1,
+            'distance' => 0
         ];
         session()->push('session-data', $data);
 
@@ -356,6 +358,7 @@ class CalcController extends Controller
 
         foreach (session('session-data') as $item)
         {
+            $price = $this->GetPriceLocation($price, $item['delivery'], $item['distance']);
             if($item['pass-width'] >= 150 & $item['pass-height'] >= 250) //с кабиной
             {
                switch ($item['item-type'])
@@ -436,7 +439,6 @@ class CalcController extends Controller
                 $price['errormessage'] = 'Индивидуальный звонок';
                 break;
             }
-            $price = $this->GetPriceLocation($price, $item['delivery'], $item['distance']);
         }
 
         session()->forget('session-data');
@@ -470,11 +472,11 @@ class CalcController extends Controller
                 {
                     if($width < 50)
                     {
-                        $price['main'] += (150 + ($length - 120))*$length;
+                        $price['main'] += (150 + ($depth - 120))*$length;
                     }
                     else
                     {
-                        $price['main'] += (200 + ($length - 120))*$length;
+                        $price['main'] += (200 + ($depth - 120))*$length;
                     }
                 }
             }
@@ -491,9 +493,9 @@ class CalcController extends Controller
                     }
                 } else {
                     if ($width < 50) {
-                        $price['main'] += (160 + ($length - 120)) * $length;
+                        $price['main'] += (160 + ($depth - 120)) * $length;
                     } else {
-                        $price['main'] += (210 + ($length - 120)) * $length;
+                        $price['main'] += (210 + ($depth - 120)) * $length;
                     }
                 }
             }
@@ -677,7 +679,7 @@ class CalcController extends Controller
 
     function GetPriceLocation($price, $location, $distance)
     {
-        if ($distance == 0)
+        if ($location > 1 && $distance == 0)
             return $price;
         switch ($location){
             case 1:
