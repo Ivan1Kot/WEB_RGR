@@ -12,7 +12,7 @@
                         <h4 class="my-0 font-weight-normal">Траншея</h4>
                     </div>
                     <div>
-                        <a href="/trench"><img src="images/trench_animation.gif" style="width: 250px"></a>
+                        <a href="/trench"><img src="images/trench_animation1.gif" style="width: 250px"></a>
                     </div>
                 </div>
                 <div class="card m-4 box-shadow bg-dark">
@@ -20,7 +20,7 @@
                         <h4 class="my-0 font-weight-normal ">Яма</h4>
                     </div>
                     <div >
-                        <a href="/pit"><img src="images/pit_animation.gif" style="width: 250px"></a>
+                        <a href="/pit"><img src="images/pit_animation1.gif" style="width: 250px"></a>
                     </div>
                 </div>
                 <div class="card m-4 box-shadow bg-dark">
@@ -28,7 +28,7 @@
                         <h4 class="my-0 font-weight-normal ">Планировка</h4>
                     </div>
                     <div >
-                        <a href="/planning"><img src="images/planning_animation.gif" style="width: 250px"></a>
+                        <a href="/planning"><img src="images/planning_animation1.gif" style="width: 250px"></a>
                     </div>
                 </div>
             </nav>
@@ -40,7 +40,7 @@
                         <h4 class="my-0 font-weight-normal ">Террасирование</h4>
                     </div>
                     <div >
-                        <a href="/terracing"><img src="images/terracing_animation.gif" style="width: 250px"></a>
+                        <a href="/terracing"><img src="images/terracing_animation1.gif" style="width: 250px"></a>
                     </div>
                 </div>
                 <div class="card m-4 box-shadow bg-dark">
@@ -48,7 +48,7 @@
                         <h4 class="my-0 font-weight-normal ">Гидромолот</h4>
                     </div>
                     <div >
-                        <a href="/hydrohammer"><img src="images/hydrohammer_animation.gif" style="width: 250px"></a>
+                        <a href="/hydrohammer"><img src="images/hydrohammer_animation1.gif" style="width: 250px"></a>
                     </div>
                 </div>
                 <div class="card m-4 box-shadow bg-dark">
@@ -56,7 +56,7 @@
                         <h4 class="my-0 font-weight-normal ">Гидробур</h4>
                     </div>
                     <div >
-                        <a href="/hydrodrill"><img src="images/hydrodrill_animation.gif" style="width: 250px"></a>
+                        <a href="/hydrodrill"><img src="images/hydrodrill_animation1.gif" style="width: 250px"></a>
                     </div>
                 </div>
               </nav>
@@ -68,7 +68,7 @@
                               <h4 class="my-0 font-weight-normal ">Котлован</h4>
                           </div>
                           <div >
-                              <a href="/foundation_pit"><img src="images/foundation_pit_animation.gif" style="width: 250px"></a>
+                              <a href="/foundation_pit"><img src="images/foundation_pit_animation1.gif" style="width: 250px"></a>
                           </div>
                       </div>
                   </nav>
