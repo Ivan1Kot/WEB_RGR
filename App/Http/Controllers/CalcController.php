@@ -479,12 +479,12 @@ class CalcController extends Controller
             'скальный',
             'полускальный',
             'строительный мусор',
-            'некопаемый'
+            'некопаемый грунт'
         ];
         $data = ['price' => $price];
         if($ground_check > 0)
         {
-            $data += ['badground' => $ground_type_text[$ground_check]];
+            $data += ['badground' => $ground_type_text[$ground_check-1]];
         }
         return view('price', $data);
     }
