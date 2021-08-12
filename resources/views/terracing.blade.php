@@ -55,16 +55,21 @@
                             </div>
 
                             <div id="hiden5" style="display: none">
-                                <p class="text-dark">Высота наивысшей точки участка</p>
-                                <input type="number" name="area-max-length" class="form-control" placeholder="Высота (м)">
+                                <p class="text-dark">Количество ступеней</p>
+                                <input type="number" name="step-count" class="form-control" placeholder="Количество ступеней">
                             </div>
 
                             <div id="hiden6" style="display: none">
+                                <p class="text-dark">Высота ступени</p>
+                                <input type="number" name="area-max-length" class="form-control" placeholder="Высота (м)">
+                            </div>
+
+                            <div id="hiden7" style="display: none">
                                 <p class="text-dark">Ширина участка</p>
                                 <input type="number" name="area-width" class="form-control" placeholder="Ширина (м)">
                             </div>
 
-                            <div id="hiden7" style="display: none">
+                            <div id="hiden8" style="display: none">
                                 <p class="text-dark">Местоположение</p>
                                 <select id="locatoin-select" class="form-select" name="delivery" aria-label="Default select example">
                                     <option selected>Выберите ваше местоположение</option>
@@ -74,7 +79,7 @@
                                 </select>
                             </div>
 
-                            <div id="hiden8" style="display: none">
+                            <div id="hiden9" style="display: none">
                                 <div>
                                     <p class="text-dark">Расстояние от Cимферополя до вашего местоположения</p>
                                     <input type="number" name="distance" class="form-control" placeholder="Введите расстояние (Если вы не в Симферополе) (км)">
@@ -84,12 +89,12 @@
                                 <button id="addbut1" type="button" class="btn btn-lg btn-block btn-primary m-3">Добавить услугу</button>
                             </div>
 
-                            <div id="hiden9" style="display: none">
+                            <div id="hiden10" style="display: none">
                                 <button id="finalbut2" type="button" class="btn btn-lg btn-block btn-primary m-3">Рассчитать</button>
                                 <button id="addbut2" type="button" class="btn btn-lg btn-block btn-primary m-3">Добавить услугу</button>
                             </div>
 
-                            <div id="hiden10" style="display: none">
+                            <div id="hiden11" style="display: none">
                                 <p class="text-dark">Какую услугу добавить к этой?</p>
                                 <select id="addselect" class="form-select" name="adding" aria-label="Default select example">
                                     <option selected>Выберите, какую услугу добавить</option>
@@ -134,21 +139,24 @@
         $("#hiden6").bind('keyup mouseup', function () {
             $("#hiden7").css("display", "block");
         });
+        $("#hiden7").bind('keyup mouseup', function () {
+            $("#hiden8").css("display", "block");
+        });
         $('#locatoin-select').on('change', function() {
             if (this.value == "2" || this.value == "3"){
-                $("#hiden8").css("display", "block");
-                $("#hiden9").css("display", "none");
+                $("#hiden9").css("display", "block");
+                $("#hiden10").css("display", "none");
             }
             else {
-                $("#hiden8").css("display", "none");
-                $("#hiden9").css("display", "block");
+                $("#hiden9").css("display", "none");
+                $("#hiden10").css("display", "block");
             }
         });
         $("#addbut1").click('keyup mouseup', function () {
-            $("#hiden10").css("display", "block");
+            $("#hiden11").css("display", "block");
         });
         $("#addbut2").click('keyup mouseup', function () {
-            $("#hiden10").css("display", "block");
+            $("#hiden11").css("display", "block");
         });
         $("#addselect").on('change', function () {
             var input = $("<input>")
