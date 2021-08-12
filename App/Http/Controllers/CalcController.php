@@ -151,7 +151,7 @@ class CalcController extends Controller
             'area-lenght' => 'required',
             'area-max-length' => 'required',
             'area-width' => 'required',
-            'step-count' => 'step-count',
+            'step-count' => 'required',
             'delivery' => 'required',
         ]);
 

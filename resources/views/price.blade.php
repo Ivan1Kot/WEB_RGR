@@ -3,6 +3,11 @@
 @section("page-title")Расчет@endsection
 
 @section("page-content")
+@if(empty($badground))
+<p></p>
+@else
+<h4>Так как вы выбрали {{$badground}} , то придётся воспользоваться услугой гидромолота, стоимость которой состовляет 2500₽/час</h4>
+@endif
     <h1 class="m-5">Стоимость услуг составляет:</h1>
     <h1 class="m-5">
         @if($price['error'] == 0)
