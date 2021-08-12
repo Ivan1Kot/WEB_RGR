@@ -151,6 +151,7 @@ class CalcController extends Controller
             'area-lenght' => 'required',
             'area-max-length' => 'required',
             'area-width' => 'required',
+            'step-count' => 'step-count',
             'delivery' => 'required',
         ]);
 
@@ -170,6 +171,7 @@ class CalcController extends Controller
             'area-lenght' => $request['area-lenght'],
             'area-max-length' => $request['area-max-length'],
             'area-width' => $request['area-width'],
+            'step-count' => $request['step-count'],
             'delivery' => $request['delivery'],
             'distance' => $request['distance'] = null ? 0 : $request['distance']
         ];
@@ -390,7 +392,7 @@ class CalcController extends Controller
                        $price = $this->PlanningSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], true);
                        break;
                    case 'terracing':
-                       $price = $this->TerracingSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], true);
+                       $price = $this->TerracingSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], $item['step-count'], true);
                        break;
                    case 'hydrodrill':
                        $price = $this->HydrodrillSummary($price, $item['hole-depth'], $item['trench-width']);
@@ -427,7 +429,7 @@ class CalcController extends Controller
                         $price = $this->PlanningSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], false);
                         break;
                     case 'terracing':
-                        $price = $this->TerracingSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], false);
+                        $price = $this->TerracingSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], $item['step-count'], false);
                         break;
                     case 'hydrodrill':
                         $price = $this->HydrodrillSummary($price, $item['hole-depth'], $item['trench-width']);
@@ -625,18 +627,18 @@ class CalcController extends Controller
         return $price;
     }
 
-    public function TerracingSummary($price, $x, $z, $y, $cabina)
+    public function TerracingSummary($price, $x, $z, $y, $step_count, $cabina)
     {
         $cubes = ($z /2) * $x * $y;
         $time = intval($cubes / 7);
 
         if($cabina)
         {
-            $price['main'] += 1500*$time;
+            $price['main'] += 1500*$time*$step_count;
         }
         else if(!$cabina)
         {
-            $price['main'] += 1700*$time;
+            $price['main'] += 1700*$time*$step_count;
         }
         return $price;
     }
