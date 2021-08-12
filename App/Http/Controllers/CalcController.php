@@ -356,8 +356,16 @@ class CalcController extends Controller
             'error' => 0
         ];
 
+        $delivery_array = [];
+        $delivery_iter = 0;
+
         foreach (session('session-data') as $item)
         {
+            if(!in_array($item['delivery'], $delivery_array) && !in_array($item['distance'], $delivery_array))
+            {
+                $delivery_array[$delivery_iter++] = $item['delivery'];
+                $delivery_array[$delivery_iter++] = $item['distance'];
+            }
             $price = $this->GetPriceLocation($price, $item['delivery'], $item['distance']);
             if($item['pass-width'] >= 150 & $item['pass-height'] >= 250) //с кабиной
             {
@@ -439,6 +447,11 @@ class CalcController extends Controller
                 $price['errormessage'] = 'Индивидуальный звонок';
                 break;
             }
+        }
+
+        for ($i=0; $i<$delivery_iter;)
+        {
+            $price = $this->GetPriceLocation($price, $delivery_array[$i++], $delivery_array[$i++]);
         }
 
         session()->forget('session-data');
