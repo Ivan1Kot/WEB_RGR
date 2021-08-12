@@ -366,7 +366,6 @@ class CalcController extends Controller
                 $delivery_array[$delivery_iter++] = $item['delivery'];
                 $delivery_array[$delivery_iter++] = $item['distance'];
             }
-            $price = $this->GetPriceLocation($price, $item['delivery'], $item['distance']);
             if($item['pass-width'] >= 150 & $item['pass-height'] >= 250) //с кабиной
             {
                switch ($item['item-type'])
@@ -565,11 +564,11 @@ class CalcController extends Controller
             if ($length <= 30) {
                 if($depth <= 120)
                 {
-                    $price['main'] += 2200 + 9000;
+                    $price['main'] += 2200 + 7000;
                 }
                 else
                 {
-                    $price['main'] += 1200 + 9000;
+                    $price['main'] += 1200 + 7000;
                 }
             } else {
                 if ($depth <= 120) {
@@ -699,10 +698,10 @@ class CalcController extends Controller
                 $price['main'] += 2000;
                 return $price;
             case 2:
-                $price['main'] += $distance * 40 * 2;
+                $price['main'] += $distance * 40 * 2 + 3000;
                 return $price;
             case 3:
-                $price['main'] += $distance * 40 * 2 + 3000;
+                $price['main'] += $distance * 40 * 2;
                 return $price;
         }
         return $price;
