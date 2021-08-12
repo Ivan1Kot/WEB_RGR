@@ -565,11 +565,11 @@ class CalcController extends Controller
             if ($length <= 30) {
                 if($depth <= 120)
                 {
-                    $price['main'] += 2200;
+                    $price['main'] += 2200 + 9000;
                 }
                 else
                 {
-                    $price['main'] += 1200;
+                    $price['main'] += 1200 + 9000;
                 }
             } else {
                 if ($depth <= 120) {
