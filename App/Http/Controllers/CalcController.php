@@ -484,7 +484,7 @@ class CalcController extends Controller
         $data = ['price' => $price];
         if($ground_check > 0)
         {
-            $data += ['badground' => $ground_type_text[$ground_check-1]];
+            $data += ['badground' => $ground_type_text[$ground_check-2]];
         }
         return view('price', $data);
     }
