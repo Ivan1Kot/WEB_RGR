@@ -476,8 +476,8 @@ class CalcController extends Controller
         session()->forget('session-data');
         session()->put('session-data', array());
         $ground_type_text = [
-            'скальный',
-            'полускальный',
+            'скальный грунт',
+            'полускальный грунт',
             'строительный мусор',
             'некопаемый грунт'
         ];
