@@ -698,10 +698,10 @@ class CalcController extends Controller
                 $price['main'] += 2000;
                 return $price;
             case 2:
-                $price['main'] += $distance * 40 * 2 + 3000;
+                $price['main'] += $distance * 40 * 2 + 5000;
                 return $price;
             case 3:
-                $price['main'] += $distance * 40 * 2;
+                $price['main'] += $distance * 40 * 2 + 2000;
                 return $price;
         }
         return $price;
