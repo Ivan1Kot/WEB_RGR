@@ -360,6 +360,7 @@ class CalcController extends Controller
 
         $delivery_array = [];
         $delivery_iter = 0;
+        $ground_check = 0;
 
         foreach (session('session-data') as $item)
         {
@@ -367,6 +368,23 @@ class CalcController extends Controller
             {
                 $delivery_array[$delivery_iter++] = $item['delivery'];
                 $delivery_array[$delivery_iter++] = $item['distance'];
+            }
+            if($item['ground-type'] > 1)
+            {
+                if($ground_check == 0)
+                {
+                    $ground_check = $item['ground-type'];
+                }
+                else if($ground_check == 4){
+                    break;
+                }
+                else
+                {
+                    if($ground_check != $item['ground-type'])
+                    {
+                        $ground_check = 4;
+                    }
+                }
             }
             if($item['pass-width'] >= 150 & $item['pass-height'] >= 250) //с кабиной
             {
@@ -457,7 +475,17 @@ class CalcController extends Controller
 
         session()->forget('session-data');
         session()->put('session-data', array());
+        $ground_type_text = [
+            'скальный',
+            'полускальный',
+            'строительный мусор',
+            'некопаемый'
+        ];
         $data = ['price' => $price];
+        if($ground_check > 0)
+        {
+            $data += ['badground' => $ground_type_text[$ground_check]];
+        }
         return view('price', $data);
     }
 
