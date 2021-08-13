@@ -27,7 +27,7 @@
                                 <option selected>Выбери тип грунта</option>
                                 <option value="1">Копаемый</option>
                                 <option value="2">Скальный</option>
-                                <option value="3">Полускальный</option>
+                                <option value="3">Полускальный, щебенистый</option>
                                 <option value="4">Строительный мусор</option>
                             </select>
                             <div id="hiden1" style="display: none">

@@ -132,3 +132,12 @@ body {
   }
 
 }
+
+.super-borders {
+  border-radius: 40px !important;
+}
+
+.super-borders-kostil {
+  border-top-left-radius: 40px !important;
+  border-top-right-radius: 40px !important;
+}

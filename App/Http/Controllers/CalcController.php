@@ -369,7 +369,7 @@ class CalcController extends Controller
                 $delivery_array[$delivery_iter++] = $item['delivery'];
                 $delivery_array[$delivery_iter++] = $item['distance'];
             }
-            if($item['ground-type'] > 1)
+            if($item['ground-type'] > 1 && $item['item-type'] != 'hydrodrill')
             {
                 if($ground_check == 0)
                 {
@@ -413,7 +413,7 @@ class CalcController extends Controller
                        $price = $this->TerracingSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], $item['step-count'], true);
                        break;
                    case 'hydrodrill':
-                       $price = $this->HydrodrillSummary($price, $item['hole-depth'], $item['trench-width']);
+                       $price = $this->HydrodrillSummary($price, $item['hole-depth'], $item['trench-width'], $item['ground-type']);
                        break;
                    case 'hydrohammer':
                        $price = $this->HydrohammerSummary($price);
@@ -450,7 +450,7 @@ class CalcController extends Controller
                         $price = $this->TerracingSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], $item['step-count'], false);
                         break;
                     case 'hydrodrill':
-                        $price = $this->HydrodrillSummary($price, $item['hole-depth'], $item['trench-width']);
+                        $price = $this->HydrodrillSummary($price, $item['hole-depth'], $item['trench-width'], $item['ground-type']);
                         break;
                     case 'hydrohammer':
                         $price = $this->HydrohammerSummary($price);
@@ -625,7 +625,7 @@ class CalcController extends Controller
 
     public function PitWithoutTrenchSummary($price, $length, $width, $depth, $ground)
     {
-        if($length <= 250 & $depth <= 220 & $width <= 400)
+        if(($length + $width <= 650) & ($depth <= 220) & (($length > 250 & $width < 250) | ( $width > 250 & $length < 250)))
         {
             if($ground <= 1)
             {
@@ -635,6 +635,11 @@ class CalcController extends Controller
             {
                 $price['hour'] += 2500;
             }
+        }
+        else //индивидуальный звонок
+        {
+            $price['error'] = 1;
+            $price['errormessage'] = 'Индивидуальный звонок';
         }
         return $price;
     }
@@ -671,7 +676,7 @@ class CalcController extends Controller
         return $price;
     }
 
-    public function HydrodrillSummary($price, $depth, $count)
+    public function HydrodrillSummary($price, $depth, $count, $ground_type)
     {
         if($depth <= 100)
         {
@@ -679,9 +684,13 @@ class CalcController extends Controller
             {
                 $price['hour'] += 2000;
             }
+            else if($count < 100)
+            {
+                $price['main'] += ($ground_type > 1)? 550* $count : 350*$count;
+            }
             else
             {
-                $price['main'] += 550*$count;
+              $price['main'] += ($ground_type > 1)? 550* $count : 300*$count;
             }
         }
         else
@@ -690,13 +699,17 @@ class CalcController extends Controller
             {
                 $price['hour'] += 2000;
             }
+            else if($count < 100)
+            {
+                $price['main'] += ($ground_type > 1)? 550* $count : 400*$count;
+            }
             else
             {
-                $price['main'] += 600*$count;
+                $price['main'] += ($ground_type > 1)? 550* $count : 350*$count;
             }
         }
         return $price;
-    }
+      }
 
     public function HydrohammerSummary($price)
     {

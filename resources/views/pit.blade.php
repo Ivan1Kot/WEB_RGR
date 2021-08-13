@@ -55,13 +55,13 @@
                             </div>
 
                             <div id="hiden5" style="display: none">
-                            <p class="text-dark">Глубина ямы в сантиметрах</p>
-                            <input type="number" name="pit-depth" class="form-control" placeholder="Глубина (см)">
+                            <p class="text-dark">Ширина ямы в сантиметрах</p>
+                            <input type="number" name="pit-width" class="form-control" placeholder="Ширина (см)">
                             </div>
 
                             <div id="hiden6" style="display: none">
-                            <p class="text-dark">Ширина ямы в сантиметрах</p>
-                            <input type="number" name="pit-width" class="form-control" placeholder="Ширина (см)">
+                            <p class="text-dark">Глубина ямы в сантиметрах</p>
+                            <input type="number" name="pit-depth" class="form-control" placeholder="Глубина (см)">
                             </div>
 
                             <div id="hiden7" style="display: none">
