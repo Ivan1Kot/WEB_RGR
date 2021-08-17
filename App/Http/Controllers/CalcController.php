@@ -361,6 +361,7 @@ class CalcController extends Controller
         $delivery_array = [];
         $delivery_iter = 0;
         $ground_check = 0;
+        $isTerracing = false;
 
         foreach (session('session-data') as $item)
         {
@@ -411,6 +412,7 @@ class CalcController extends Controller
                        break;
                    case 'terracing':
                        $price = $this->TerracingSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], $item['step-count'], true);
+                       $isTerracing = true;
                        break;
                    case 'hydrodrill':
                        $price = $this->HydrodrillSummary($price, $item['hole-depth'], $item['trench-width'], $item['ground-type']);
@@ -448,6 +450,7 @@ class CalcController extends Controller
                         break;
                     case 'terracing':
                         $price = $this->TerracingSummary($price, $item['area-lenght'], $item['area-max-length'], $item['area-width'], $item['step-count'], false);
+                        $isTerracing = true;
                         break;
                     case 'hydrodrill':
                         $price = $this->HydrodrillSummary($price, $item['hole-depth'], $item['trench-width'], $item['ground-type']);
@@ -486,6 +489,7 @@ class CalcController extends Controller
         {
             $data += ['badground' => $ground_type_text[$ground_check-2]];
         }
+        $data += ['isTerracing' => $isTerracing];
         return view('price', $data);
     }
 

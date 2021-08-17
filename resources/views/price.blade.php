@@ -3,6 +3,13 @@
 @section("page-title")Расчет@endsection
 
 @section("page-content")
+
+@if($isTerracing == true)
+<div class="container"><div class="alert alert-danger"><h4>Рассчёт террасирования производится ОЧЕНЬ приблизительно, если нужно узнать точную цену, позвоните по номеру телефона</h4></div></div>
+@else
+<p></p>
+@endif
+
 @if(empty($badground))
 <p></p>
 @else
