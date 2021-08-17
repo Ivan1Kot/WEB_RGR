@@ -6,6 +6,7 @@
     <h1>Заполни поля</h1>
 
     @if($errors->any())
+    <div class="container">
         <div class="alert alert-danger">
             <ul>
                 @foreach($errors->all() as $error)
@@ -13,6 +14,7 @@
                 @endforeach
             </ul>
         </div>
+      </div>
     @endif
 
         <form id="mainform" name="trench-form" method="post" action="/trench">

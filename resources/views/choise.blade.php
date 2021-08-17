@@ -20,7 +20,7 @@
                         <h4 class="my-0 font-weight-normal ">Яма</h4>
                     </div>
                     <div >
-                        <a href="/pit"><video src="images/pit_animation.webm" autoplay muted loop style="width: 250px"></video></a>
+                        <a href="/pit"><video src="images/dig_animation.webm" autoplay muted loop style="width: 250px"></video></a>
                     </div>
                 </div>
                 <div class="card m-4 box-shadow bg-dark super-borders">

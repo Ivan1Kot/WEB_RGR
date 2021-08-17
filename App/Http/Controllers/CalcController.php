@@ -625,7 +625,7 @@ class CalcController extends Controller
 
     public function PitWithoutTrenchSummary($price, $length, $width, $depth, $ground)
     {
-        if(($length + $width <= 650) & ($depth <= 220) & (($length > 250 & $width < 250) | ( $width > 250 & $length < 250)))
+        if(($length + $width <= 650) & ($depth <= 220) & (($length >= 250 & $width <= 250) | ( $width >= 250 & $length <= 250)))
         {
             if($ground <= 1)
             {

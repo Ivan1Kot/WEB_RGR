@@ -5,6 +5,7 @@
 @section("page-content")
     <h1>Заполни поля</h1>
     @if($errors->any())
+    <div class="container">
         <div class="alert alert-danger">
             <ul>
                 @foreach($errors->all() as $error)
@@ -12,6 +13,7 @@
                 @endforeach
             </ul>
         </div>
+      </div>
     @endif
         <form id="mainform" name="terracing-form"  method="post" action="/terracing">
             @csrf

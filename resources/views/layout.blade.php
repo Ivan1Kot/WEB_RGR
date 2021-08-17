@@ -18,7 +18,7 @@
     <div class="container-fluid d-flex h-100 p-3 mx-auto flex-column">
         <header class="masthead clearfix">
             <div class="container inner">
-                <h3 class="masthead-brand">Crimean Ground Works</h3>
+                <a href="/main"><h3 class="masthead-brand">Crimean Ground Works</h3></a>
                 <nav>
                   <ul class="nav masthead-nav">
                     <li><a class="nav-link" href="/main">Главная</a></li>
