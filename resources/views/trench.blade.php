@@ -35,17 +35,17 @@
                                     <option value="4">Строительный мусор</option>
                                 </select>
                             <div id="hiden1" style="display: none">
-                                <p class="text-dark">Ширина проезда (нужно понять, сможет ли эксковатор проехать на участок)</p>
+                                <p class="text-dark">Ширина проезда (нужно понять, сможет ли экскаватор проехать на участок)</p>
                                 <input type="number" name="pass-width" class="form-control" placeholder="Ширина (см)">
                             </div>
 
                             <div id="hiden2" style="display: none">
-                            <p class="text-dark">Высота проезда (нужно понять, сможет ли эксковатор проехать на участок)</p>
+                            <p class="text-dark">Высота проезда (нужно понять, сможет ли экскаватор проехать на участок)</p>
                                 <input type="number" name="pass-height" class="form-control" placeholder="Высота (см)">
                             </div>
 
                             <div id="hiden3" style="display: none">
-                                <p class="text-dark">Нужен поиск коммуникаций? (Поиск коммуникаций нужен для того, чтоб в процессе работы эвакуатор не задел никаких коммуникаций)</p>
+                                <p class="text-dark">Нужен поиск коммуникаций? (Поиск коммуникаций нужен для того, чтоб в процессе работы экскаватор не задел никаких коммуникаций)</p>
                                 <select id="comselect" class="form-select" name="communications-search" aria-label="Default select example">
                                     <option selected>Выберите, нужен ли поиск коммуникаций</option>
                                     <option value="1">Нет</option>
