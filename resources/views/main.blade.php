@@ -21,7 +21,7 @@
         <a href="/choise" class="btn btn-lg btn-default">Рассчитать</a>
     </p>
     <div id="video-bg">
-      <video src="images/2in1_first_anim_test100.webm" width="100%" height="auto" preload="auto" autoplay loop>
+      <video src="images/2in1 first anim 6 low size.webm" width="100%" height="auto" preload="auto" autoplay loop muted>
       </video>
     </div>
 @endsection
